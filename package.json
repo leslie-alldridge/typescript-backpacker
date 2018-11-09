@@ -1,9 +1,6 @@
 {
   "name": "typescript-react-redux-boilerplate",
   "version": "1.0.0",
-  "private": true,
-  "description": "A frontend boilerplate with React, Redux and Typescript",
-  "homepage": "https://rokoroku.github.io/typescript-react-redux-boilerplate",
   "main": "index.js",
   "scripts": {
     "predeploy": "npm run build",
@@ -13,7 +10,6 @@
     "build": "webpack -p --progress --colors",
     "prettier": "prettier --write \"src/**/*.{ts,tsx,css}\""
   },
-  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@types/classnames": "2.2.6",
