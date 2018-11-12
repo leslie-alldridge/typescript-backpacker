@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export namespace RegisterForm {
+export namespace LoginForm {
   export interface Props {
     //   todo: TodoModel;
     //   editTodo: typeof TodoActions.editTodo;
@@ -17,11 +17,11 @@ export namespace RegisterForm {
   }
 }
 
-export class RegisterForm extends React.Component<
-  RegisterForm.Props,
-  RegisterForm.State
+export class LoginForm extends React.Component<
+  LoginForm.Props,
+  LoginForm.State
 > {
-  constructor(props: RegisterForm.Props) {
+  constructor(props: LoginForm.Props) {
     super(props);
     this.state = {
       username: '',
@@ -89,7 +89,7 @@ export class RegisterForm extends React.Component<
           />
 
           <input
-            id="input1"
+            id="input2"
             className="form-control"
             pattern=".{8,}"
             required
@@ -115,7 +115,7 @@ export class RegisterForm extends React.Component<
           />
 
           <button id="input1btn" className="btn btn-primary" type="submit">
-            Register
+            Login
           </button>
           <button
             id="input1btnsub"
