@@ -1,8 +1,16 @@
 import * as React from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { TodoActions } from '../../actions/bags';
 import * as style from '../../containers/App/style.css';
+import { TodoModel } from 'app/models/TodoModel';
+
+export namespace TodoList {
+  export interface Props {
+    todos: TodoModel[];
+    actions: TodoActions;
+  }
+}
 
 const divStyle = {
   color: 'blue',
@@ -24,8 +32,20 @@ const heroText = {
   background: 'none'
 } as React.CSSProperties;
 
-export class ContactHeader extends React.Component {
+export class ContactHeader extends React.Component<TodoList.Props> {
+  constructor(props: any) {
+    super(props);
+    this.add = this.add.bind(this);
+  }
+
+  add() {
+    console.log('clicked');
+    this.props.actions.completeTodo(3);
+  }
+
   render() {
+    const { actions } = this.props;
+
     return (
       <div className={style.subHead} style={divStyle} id="contact">
         <Jumbotron style={heroText}>
@@ -40,6 +60,7 @@ export class ContactHeader extends React.Component {
             Contact
           </h3>
         </Jumbotron>
+        <button onClick={this.add}>click</button>
         <a className={style.arrow} href="#">
           <FontAwesomeIcon
             size={'lg'}
