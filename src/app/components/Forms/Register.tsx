@@ -7,6 +7,7 @@ export namespace RegisterForm {
     //   editTodo: typeof TodoActions.editTodo;
     //   deleteTodo: typeof TodoActions.deleteTodo;
     //   completeTodo: typeof TodoActions.completeTodo;
+    registerToggle: any;
   }
 
   export interface State {
@@ -121,7 +122,7 @@ export class RegisterForm extends React.Component<
             id="input1btnsub"
             className="btn btn-primary"
             onClick={() => {
-              //   this.props.registerToggle()
+              this.props.registerToggle();
               //   this.clearError()
             }}
           >

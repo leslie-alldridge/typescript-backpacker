@@ -40,8 +40,12 @@ export class App extends React.Component<App.Props, App.State> {
     return (
       <div className={style.new}>
         <Header />
-        {!this.state.showLogin && <RegisterForm />}
-        {this.state.showLogin && <LoginForm />}
+        {!this.state.showLogin && (
+          <RegisterForm registerToggle={this.toggleLogin} />
+        )}
+        {this.state.showLogin && (
+          <LoginForm registerToggle={this.toggleLogin} />
+        )}
         <ContactContent />
       </div>
     );

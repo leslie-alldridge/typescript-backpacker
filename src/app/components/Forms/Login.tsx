@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export namespace LoginForm {
   export interface Props {
@@ -7,13 +6,13 @@ export namespace LoginForm {
     //   editTodo: typeof TodoActions.editTodo;
     //   deleteTodo: typeof TodoActions.deleteTodo;
     //   completeTodo: typeof TodoActions.completeTodo;
+    registerToggle: any;
   }
 
   export interface State {
     username: string;
     password: string;
-    confirm: string;
-    err: boolean;
+    errorVisible: boolean;
   }
 }
 
@@ -26,12 +25,11 @@ export class LoginForm extends React.Component<
     this.state = {
       username: '',
       password: '',
-      confirm: '',
-      err: false
+      errorVisible: true
     };
-    this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    //   this.clearError = this.clearError.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleError = this.handleError.bind(this);
   }
 
   handleChange(e: any) {
@@ -39,37 +37,30 @@ export class LoginForm extends React.Component<
       ...this.state,
       [e.target.name]: e.target.value
     });
-    console.log(this.state);
   }
 
   handleClick(e: any) {
-    this.setState({
-      err: true
-    });
-
     e.preventDefault();
-    const { username, password, confirm } = this.state;
-    if (password !== confirm) {
-      //this.props.registerError('Passwords do not match!');
-      return;
-    }
-    const creds: object = {
+    const { username, password } = this.state;
+    const creds = {
       username: username.trim(),
       password: password.trim()
     };
-    //this.props.registerUser(creds);
+    console.log('login');
     console.log(creds);
+
+    //this.props.loginUser(creds);
   }
 
-  // clearError() {
-  //   //this.props.errorClear();
-  // }
+  handleError() {
+    this.setState({
+      errorVisible: false
+    });
+  }
 
   render() {
-    const { username, password, confirm } = this.state;
-
     return (
-      <div id="wrapperForm2">
+      <div id="wrapperForm">
         <form
           className="form-inline"
           onSubmit={e => {
@@ -77,57 +68,42 @@ export class LoginForm extends React.Component<
           }}
         >
           <input
-            id="input1"
-            className="form-control"
             pattern=".{4,}"
             required
             title="4 characters minimum"
+            id="input1"
+            className="form-control"
             name="username"
             placeholder="Username"
             onChange={this.handleChange}
-            value={username}
           />
-
           <input
-            id="input2"
-            className="form-control"
             pattern=".{8,}"
             required
             title="8 characters minimum"
+            className="form-control"
+            id="input1"
             type="password"
             name="password"
             placeholder="Password"
             onChange={this.handleChange}
-            value={password}
           />
-
-          <input
-            id="input1reg"
-            className="form-control"
-            pattern=".{8,}"
-            required
-            title="8 characters minimum"
-            type="password"
-            name="confirm"
-            placeholder="Confirm Password"
-            onChange={this.handleChange}
-            value={confirm}
-          />
-
           <button id="input1btn" className="btn btn-primary" type="submit">
             Login
           </button>
           <button
-            id="input1btnsub"
             className="btn btn-primary"
+            id="regLink"
             onClick={() => {
-              //   this.props.registerToggle()
-              //   this.clearError()
+              this.props.registerToggle();
+              this.handleError();
             }}
           >
-            <FontAwesomeIcon size={'1x'} icon={'chevron-left'} /> Back
+            Register
           </button>
         </form>
+
+        {/* {this.state.errorVisible && <ErrorMessage reducer="auth" />} */}
       </div>
     );
   }
