@@ -44,7 +44,7 @@ export class ContactHeader extends React.Component<TodoList.Props> {
   }
 
   render() {
-    const { actions } = this.props;
+    //const { actions } = this.props;
 
     return (
       <div className={style.subHead} style={divStyle} id="contact">
