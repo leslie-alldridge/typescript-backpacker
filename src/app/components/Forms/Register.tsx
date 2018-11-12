@@ -1,26 +1,5 @@
 import * as React from 'react';
-import { Jumbotron } from 'react-bootstrap';
-import * as style from '../../containers/App/style.css';
-
-const divStyle = {
-  color: 'blue',
-  height: '10vh',
-  position: 'relative',
-  width: '100vw',
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'cover'
-} as React.CSSProperties;
-
-const heroText = {
-  textAlign: 'center',
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  color: 'white',
-  background: 'none'
-} as React.CSSProperties;
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export namespace RegisterForm {
   export interface Props {
@@ -50,17 +29,18 @@ export class RegisterForm extends React.Component<
       confirm: '',
       err: false
     };
-    //   this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     //   this.handleClick = this.handleClick.bind(this);
     //   this.clearError = this.clearError.bind(this);
   }
 
-  // handleChange(e: any) {
-  //   this.setState({
-  //     ...this.state,
-  //     [e.target.name]: e.target.value
-  //   });
-  // }
+  handleChange(e: any) {
+    this.setState({
+      ...this.state,
+      [e.target.name]: e.target.value
+    });
+    console.log(this.state);
+  }
 
   // handleClick(e: any) {
   //   this.setState({
@@ -85,12 +65,68 @@ export class RegisterForm extends React.Component<
   // }
 
   render() {
+    const { username, password, confirm } = this.state;
+
     return (
-      <div className={style.subHead} style={divStyle}>
-        <Jumbotron style={heroText}>
-          <h3>Backpack Tracker</h3>
-          <h4>Keep track of your packed bags</h4>
-        </Jumbotron>
+      <div id="wrapperForm2">
+        <form
+          className="form-inline"
+          onSubmit={e => {
+            //this.handleClick(e);
+          }}
+        >
+          <input
+            id="input1"
+            className="form-control"
+            pattern=".{4,}"
+            required
+            title="4 characters minimum"
+            name="username"
+            placeholder="Username"
+            onChange={this.handleChange}
+            value={username}
+          />
+
+          <input
+            id="input1"
+            className="form-control"
+            pattern=".{8,}"
+            required
+            title="8 characters minimum"
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={this.handleChange}
+            value={password}
+          />
+
+          <input
+            id="input1reg"
+            className="form-control"
+            pattern=".{8,}"
+            required
+            title="8 characters minimum"
+            type="password"
+            name="confirm"
+            placeholder="Confirm Password"
+            onChange={this.handleChange}
+            value={confirm}
+          />
+
+          <button id="input1btn" className="btn btn-primary" type="submit">
+            Register
+          </button>
+          <button
+            id="input1btnsub"
+            className="btn btn-primary"
+            onClick={() => {
+              //   this.props.registerToggle()
+              //   this.clearError()
+            }}
+          >
+            <FontAwesomeIcon size={'1x'} icon={'chevron-left'} /> Back
+          </button>
+        </form>
       </div>
     );
   }
