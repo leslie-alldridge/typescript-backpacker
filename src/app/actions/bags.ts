@@ -1,7 +1,7 @@
-import { actionsDefs } from "../const";
-import { MemberEntity } from "../api/model";
+import { actionsDefs } from '../const';
+//import { MemberEntity } from '../api/model';
 
-export const fetchMemberListCompleted = (memberList: MemberEntity[]) => ({
+export const fetchMemberListRequestStart = (memberList: any) => ({
   type: actionsDefs.GET_BAGS,
   payload: memberList
 });
