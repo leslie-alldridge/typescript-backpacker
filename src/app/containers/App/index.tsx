@@ -1,19 +1,17 @@
-import * as React from 'react';
-import * as style from './style.css';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { Header, LoginForm } from 'app/components';
-import { RegisterForm } from 'app/components';
+import * as React from "react";
+import * as style from "./style.css";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { Header, LoginForm } from "app/components";
+import { RegisterForm } from "app/components";
+//import { fetchMemberListCompleted } from "../../actions/bags";
 
 library.add(fab, fas);
 
 export namespace App {
   export interface Props {
-    //   todo: TodoModel;
-    //   editTodo: typeof TodoActions.editTodo;
-    //   deleteTodo: typeof TodoActions.deleteTodo;
-    //   completeTodo: typeof TodoActions.completeTodo;
+    fetchMemberListCompleted: () => void;
   }
 
   export interface State {
@@ -31,6 +29,7 @@ export class App extends React.Component<App.Props, App.State> {
   }
 
   toggleLogin() {
+    this.props.fetchMemberListCompleted();
     this.setState({
       showLogin: !this.state.showLogin
     });

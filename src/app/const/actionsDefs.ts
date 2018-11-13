@@ -1,5 +1,6 @@
-const prefix = 'MEMBERS_MODULE';
+const prefix = "MEMBERS_MODULE";
 
 export const actionsDefs = {
-  FETCH_MEMBERS_COMPLETED: `[${prefix}][1] Member Fetching Completed fetchMembersCompleted`,
-}
+  GET_BAGS: "get bags",
+  FETCH_MEMBERS_COMPLETED: `[${prefix}][1] Member Fetching Completed fetchMembersCompleted`
+};
