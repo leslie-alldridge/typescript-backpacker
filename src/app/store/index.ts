@@ -1,25 +1,18 @@
-import { Store, createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import { logger } from 'app/middleware';
-import { RootState, rootReducer } from 'app/reducers';
+import { createStore, applyMiddleware, compose} from 'redux';
+import reduxThunk from 'redux-thunk';
+import { reducers } from '../reducers';
 
-export function configureStore(initialState?: RootState): Store<RootState> {
-  let middleware = applyMiddleware(logger);
+const middlewares = [
+  reduxThunk,
+];
 
-  if (process.env.NODE_ENV !== 'production') {
-    middleware = composeWithDevTools(middleware);
-  }
+const composeEnhancers = (process.env.NODE_ENV !== 'production' && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ? 
+  (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ :
+  compose;
 
-  const store = createStore(rootReducer as any, initialState as any, middleware) as Store<
-    RootState
-  >;
-
-  if (module.hot) {
-    module.hot.accept('app/reducers', () => {
-      const nextReducer = require('app/reducers');
-      store.replaceReducer(nextReducer);
-    });
-  }
-
-  return store;
-}
+export const store = createStore(
+  reducers,
+  composeEnhancers(
+    applyMiddleware(...middlewares),
+  ),
+);

@@ -3,8 +3,20 @@ import { Media } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as style from '../../containers/App/style.css';
 import * as contactImg from '../../images/pimg.jpg';
+//import {TodoActions} from '../../actions/index'
 
 export class ContactContent extends React.Component {
+  constructor(props:any){
+    super(props)
+    this.addThing = this.addThing.bind(this)
+  }
+
+  addThing(){
+    // TodoActions.addTodo(
+    //   'ADD_TODO','leslie'
+    // )
+  }
+
   render() {
     return (
       <div className="container">
@@ -80,6 +92,7 @@ export class ContactContent extends React.Component {
                   GitHub
                 </a>
               </ul>
+              <button onClick={this.addThing}>Click me </button>
             </Media.Body>
           </div>
         </Media>
