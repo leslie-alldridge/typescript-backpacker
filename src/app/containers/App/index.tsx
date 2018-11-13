@@ -3,7 +3,7 @@ import * as style from './style.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import { ContactContent, Header, LoginForm } from 'app/components';
+import { Header, LoginForm } from 'app/components';
 import { RegisterForm } from 'app/components';
 
 library.add(fab, fas);
@@ -46,7 +46,6 @@ export class App extends React.Component<App.Props, App.State> {
         {this.state.showLogin && (
           <LoginForm registerToggle={this.toggleLogin} />
         )}
-        <ContactContent />
       </div>
     );
   }
