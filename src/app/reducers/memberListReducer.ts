@@ -1,4 +1,3 @@
-
 import { MemberEntity } from '../api/model';
 import { actionsDefs } from '../const';
 
@@ -15,10 +14,13 @@ interface BaseAction {
 }
 
 const createDefaultState = () => ({
-  memberList: [],
+  memberList: []
 });
 
-export const memberListReducer = (state: MemberListState = createDefaultState(), action: BaseAction): MemberListState => {
+export const memberListReducer = (
+  state: MemberListState = createDefaultState(),
+  action: BaseAction
+): MemberListState => {
   switch (action.type) {
     case actionsDefs.FETCH_MEMBERS_COMPLETED:
       // Return the new state
@@ -26,11 +28,14 @@ export const memberListReducer = (state: MemberListState = createDefaultState(),
   }
 
   return state;
-}
+};
 
-const handleFetchMembersCompleted = (state: MemberListState, memberList: MemberEntity[]): MemberListState => ({
-  // We could have simply returned the list of members, but we are returning an object with the list of members 
+const handleFetchMembersCompleted = (
+  state: MemberListState,
+  memberList: MemberEntity[]
+): MemberListState => ({
+  // We could have simply returned the list of members, but we are returning an object with the list of members
   // using spread operator to show how it helps keeping objects inmutable
   ...state,
-  memberList,
+  memberList
 });
