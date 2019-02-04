@@ -9,6 +9,7 @@ import { Header } from "./header";
 import RegisterForm from "./register";
 import LoginForm from './login'
 import BagPage from "./bagpage";
+import MainForm from "./mainform";
 // import Logout from "./Logout";
 // import Loading from "./Loading";
 
@@ -34,6 +35,8 @@ export default class Main extends React.Component<Props,{bags: [], formPage:bool
   }
 
   handleClick(e:any, description:string, destination:string) {
+    console.log("clicked");
+    
     e.preventDefault();
     this.props.saveBagToDB(
       this.props.auth.user.username,
@@ -74,6 +77,7 @@ export default class Main extends React.Component<Props,{bags: [], formPage:bool
         {this.props.auth.isAuthenticated && (
           <BagPage bagsData={this.props.auth} />
         )} */}
+        <MainForm handleClick={this.handleClick}/>
         <BagPage />
         <FooterText />
       </div>
