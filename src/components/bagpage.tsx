@@ -1,16 +1,15 @@
-import * as React from 'react'
+import * as React from "react";
 import BagList from "./BagList";
+import UpdateBag from "./updatebag";
 // import UpdateBag from "./UpdateBag";
 
-interface Props {
-
-}
+interface Props {}
 
 interface State {
-    viewList: boolean,
-    viewListID: number,
-    viewBagUpdate: boolean,
-    bagState: [] 
+  viewList: boolean;
+  viewListID: number;
+  viewBagUpdate: boolean;
+  bagState: [];
 }
 
 class BagPage extends React.Component<Props, State> {
@@ -20,15 +19,15 @@ class BagPage extends React.Component<Props, State> {
       viewList: false,
       viewListID: null,
       viewBagUpdate: null,
-      bagState: [] 
+      bagState: []
     };
     this.updateBagToggle = this.updateBagToggle.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
     this.addInventory = this.addInventory.bind(this);
   }
 
-  componentDidMount(){
-      //get bags
+  componentDidMount() {
+    //get bags
   }
 
   addInventory(viewListID) {
@@ -47,7 +46,7 @@ class BagPage extends React.Component<Props, State> {
   }
 
   deleteItem(id) {
-      //delete bag id
+    //delete bag id
   }
 
   render() {
@@ -57,10 +56,11 @@ class BagPage extends React.Component<Props, State> {
           <h3 id="bagHead">
             <i className="fas fa-suitcase" /> Your Current Bags :
           </h3>
-          <BagList key={1}
-                    id={1}
-                    description="test"
-                    destination="desc"/>
+          <BagList key={1} id={1} description="test" destination="desc" />
+
+          {this.state.viewBagUpdate && (
+            <UpdateBag key={1} id={1} description="test" destination="desc" />
+          )}
           {/* {this.props.bagsData.bag.map(bag => (
             <div key={bag.id} id="card" className="card">
               <div
@@ -113,7 +113,7 @@ class BagPage extends React.Component<Props, State> {
                     destination={bag.destination}
                   />
                 )} */}
-              {/* </div>
+          {/* </div>
             </div>
           ))} */}
         </div>
