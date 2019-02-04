@@ -1,1 +1,0 @@
-export { MemberListContainer } from './container';

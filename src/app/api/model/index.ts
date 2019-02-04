@@ -1,1 +1,0 @@
-export {MemberEntity} from './member';

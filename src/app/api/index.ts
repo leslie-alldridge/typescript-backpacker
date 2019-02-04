@@ -1,1 +1,0 @@
-export {fetchMemberList} from './memberApi'
