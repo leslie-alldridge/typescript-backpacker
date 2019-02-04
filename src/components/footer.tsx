@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 
-export const Footer: React.StatelessComponent<{}> = () => {
+export const FooterText: React.StatelessComponent<{}> = () => {
   return (
     <div>
     <footer id="footer" className="footer">

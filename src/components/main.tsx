@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 // import MainForm from "./MainForm";
 // import BagPage from "./BagPage";
 // import LoginForm from "./LoginForm";
-import {Footer} from "./Footer";
+import { FooterText} from "./Footer";
 import { saveBagToDB } from "./members/actions/fetchMembers";
 import { Header } from "./header";
 import RegisterForm from "./register";
@@ -41,9 +41,9 @@ export default class Main extends React.Component<Props,{bags: [], formPage:bool
     );
   }
 
-  registerToggle() {
+  private registerToggle() {    
     this.setState(prevState => ({
-      registerToggle: prevState.registerToggle
+      registerToggle: !prevState.registerToggle
     }));
 
   }
@@ -52,7 +52,7 @@ export default class Main extends React.Component<Props,{bags: [], formPage:bool
     return (
       <div className="container">
         <Header />
-        {!this.state.registerToggle && <LoginForm/>}
+        {!this.state.registerToggle && <LoginForm registerToggle={this.registerToggle}/>}
         {this.state.registerToggle && <RegisterForm registerToggle={this.registerToggle} />}
         {/* {!this.props.auth.isAuthenticated &&
           this.state.registerToggle && (
@@ -73,7 +73,7 @@ export default class Main extends React.Component<Props,{bags: [], formPage:bool
         {this.props.auth.isAuthenticated && (
           <BagPage bagsData={this.props.auth} />
         )} */}
-        <Footer />
+        <FooterText />
       </div>
     );
   }
