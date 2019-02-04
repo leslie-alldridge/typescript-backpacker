@@ -8,6 +8,7 @@ import { saveBagToDB } from "./members/actions/fetchMembers";
 import { Header } from "./header";
 import RegisterForm from "./register";
 import LoginForm from './login'
+import BagPage from "./bagpage";
 // import Logout from "./Logout";
 // import Loading from "./Loading";
 
@@ -73,6 +74,7 @@ export default class Main extends React.Component<Props,{bags: [], formPage:bool
         {this.props.auth.isAuthenticated && (
           <BagPage bagsData={this.props.auth} />
         )} */}
+        <BagPage />
         <FooterText />
       </div>
     );

@@ -5,12 +5,12 @@ interface Props {
   id: number;
   description: string;
   destination: string;
-  state:{bagItems: [{
-      archived: number;
-      id: number;
-      bagitem: string;
-      bagid: number;
-  }]};
+//   state:{bagItems: [{
+//       archived: number;
+//       id: number;
+//       bagitem: string;
+//       bagid: number;
+//   }]};
 }
 
 interface State {
@@ -78,7 +78,7 @@ class BagList extends React.Component<Props, State> {
               </form>
               <hr />
               <ul>
-                {this.props.state.bagItems.map(item => {
+                {/* {this.props.state.bagItems.map(item => {
                   if (item.archived == 1)
                     return (
                       <li key={item.id}>
@@ -92,7 +92,7 @@ class BagList extends React.Component<Props, State> {
                         />
                       </li>
                     );
-                })}
+                })} */}
               </ul>
             </div>
           </div>
@@ -100,7 +100,7 @@ class BagList extends React.Component<Props, State> {
             <div className="todolist">
               <h4>Items Checked</h4>
               <ul id="done-items" className="list-unstyled">
-                {this.props.state.bagItems.map(item => {
+                {/* {this.props.state.bagItems.map(item => {
                   if (item.archived == 0)
                     return (
                       <li key={item.id}>
@@ -114,7 +114,7 @@ class BagList extends React.Component<Props, State> {
                         />
                       </li>
                     );
-                })}
+                })} */}
               </ul>
             </div>
           </div>
