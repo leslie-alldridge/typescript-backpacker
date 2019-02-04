@@ -1,4 +1,3 @@
-
 import * as React from "react";
 
 interface Props {
@@ -34,19 +33,19 @@ class RegisterForm extends React.Component<Props,State> {
   }
 
   handleClick(e) {
-    this.setState({
-      err: true
-    })
     e.preventDefault()
     const { username, password, confirm } = this.state;
     if (password !== confirm) {
+      this.setState({
+        err: true
+      })
       return;
     }
     const creds = {
       username: username.trim(),
       password: password.trim()
     };
-console.log(creds);
+    console.log(creds);
   }
 
   
@@ -55,9 +54,7 @@ console.log(creds);
     const { username, password, confirm } = this.state;
     return (
       <div id="wrapperForm2">
-      <form className="form-inline" onSubmit={(e) => {
-            this.handleClick(e);
-          }}>
+      <form className="form-inline" onSubmit={this.handleClick}>
 
           <input
           id="input1"
