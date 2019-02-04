@@ -14,6 +14,6 @@ export const Footer: React.StatelessComponent<{}> = () => {
         </p>
       </div>
     </footer>
-</div>
+  </div>
   );
 }
