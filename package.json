@@ -1,14 +1,14 @@
 {
-  "name": "react-typescript-samples",
+  "name": "react-typescript-backpacker",
   "version": "1.0.0",
-  "description": "Sample working with React,TypeScript and Webpack)",
+  "description": "Backpacker Typescript",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development --inline --hot --open",
     "build": "webpack --mode development",
     "dev": "nodemon server/index.js",
-    "web": "webpack --watch"
+    "web": "webpack --mode development --watch"
   },
   "author": "",
   "license": "ISC",

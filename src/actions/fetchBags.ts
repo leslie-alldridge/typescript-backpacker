@@ -4,8 +4,8 @@ import axios from 'axios'
 
 export const fetchBags = () => (dispatch) => {
   axios.get('/api/v1/bags')
-    .then((bag:any) => {
-      dispatch(fetchBagsCompleted(bag));
+    .then((data:any) => {
+      dispatch(fetchBagsCompleted(data.data.bag));
     });
 };
 

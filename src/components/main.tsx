@@ -1,7 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { FooterText} from "./Footer";
-import { saveBagToDB } from "./members/actions/fetchMembers";
 import { Header } from "./header";
 import RegisterForm from "./register";
 import LoginForm from './login'
@@ -16,7 +15,6 @@ interface Props {
     username: string
   }};
   bags:[];
-  saveBagToDB(user, description,destination): void;
 }
 
 export default class Main extends React.Component<Props,{bags: [], formPage:boolean, registerToggle: boolean}> {
@@ -35,11 +33,11 @@ export default class Main extends React.Component<Props,{bags: [], formPage:bool
     console.log("clicked");
     
     e.preventDefault();
-    this.props.saveBagToDB(
-      this.props.auth.user.username,
-      description,
-      destination
-    );
+    // this.props.saveBagToDB(
+    //   this.props.auth.user.username,
+    //   description,
+    //   destination
+    // );
   }
 
   private registerToggle() {    
@@ -91,11 +89,10 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = dispatch => {
   return {
-    saveBagToDB: (user, description, destination) => {
-      return dispatch(saveBagToDB(user, description, destination));
+   
     }
   };
-};
+
 
  connect(
   mapStateToProps,
