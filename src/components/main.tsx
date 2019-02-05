@@ -1,14 +1,10 @@
 import * as React from "react";
 import { connect } from "react-redux";
-// import MainForm from "./MainForm";
-// import BagPage from "./BagPage";
-// import LoginForm from "./LoginForm";
 import { FooterText} from "./Footer";
 import { saveBagToDB } from "./members/actions/fetchMembers";
 import { Header } from "./header";
 import RegisterForm from "./register";
 import LoginForm from './login'
-import BagPage from "./bagpage";
 import MainForm from "./mainform";
 import { BagePageContainer } from "./bagpagecontainer";
 // import Logout from "./Logout";

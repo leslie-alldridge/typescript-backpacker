@@ -1,10 +1,6 @@
-import * as React from 'react';
 import { connect } from 'react-redux';
 import { State } from '../reducers';
-import { MemberEntity } from '../model';
-import { fetchBags } from '../components/member/actions/fetchBags';
-// import { memberFieldChangeAction } from './actions/memberFieldChange';
-// import { saveMemberAction } from './actions/saveMember';
+import { fetchBags } from '../actions/fetchBags';
 import  BagePage  from './bagpage';
 
 const mapStateToProps = (state: State, ownProps: any) => ({

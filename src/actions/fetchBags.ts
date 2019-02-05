@@ -1,13 +1,6 @@
-import { actionTypes } from '../../../common/constants/actionTypes';
-import { BagEntity } from '../../../model';
+import { actionTypes } from '../common/constants/actionTypes';
+import { BagEntity } from '../model';
 import axios from 'axios'
-
-// const bag = {
-//   id: 1,
-//   description: 'testact',
-//   destination: 'testact',
-//   username: 'leslie',
-// }
 
 export const fetchBags = () => (dispatch) => {
   axios.get('/api/v1/bags')

@@ -5,12 +5,6 @@ interface Props {
   id: number;
   description: string;
   destination: string;
-//   state:{bagItems: [{
-//       archived: number;
-//       id: number;
-//       bagitem: string;
-//       bagid: number;
-//   }]};
 }
 
 interface State {

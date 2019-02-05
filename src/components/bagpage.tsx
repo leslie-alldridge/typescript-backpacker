@@ -1,10 +1,6 @@
 import * as React from "react";
-import {connect} from 'react-redux'
 import BagList from "./BagList";
 import UpdateBag from "./updatebag";
-import { BagItemEntity } from "../model";
-import { fetchBags } from "./member/actions/fetchBags";
-// import UpdateBag from "./UpdateBag";
 
 interface Props {
   fetchBags(): void;
