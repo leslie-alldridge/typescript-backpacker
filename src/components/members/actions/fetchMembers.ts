@@ -1,12 +1,12 @@
 import { actionTypes } from '../../../common/constants/actionTypes';
 import { MemberEntity } from '../../../model';
-import { memberAPI } from '../../../api/member';
+// import { memberAPI } from '../../../api/member';
 
 export const saveBagToDB = (user:any, description:string, destination:string) => (dispatch) => {
-  memberAPI.fetchMembers()
-    .then((members) => {
-      dispatch(fetchMembersCompleted(members));
-    });
+  // memberAPI.fetchMembers()
+  //   .then((bags) => {
+  //     dispatch(fetchMembersCompleted(bags));
+  //   });
 };
 
 const fetchMembersCompleted = (members: MemberEntity[]) => ({
@@ -15,8 +15,8 @@ const fetchMembersCompleted = (members: MemberEntity[]) => ({
 });
 
 export const fetchMembersAction = () => (dispatch) => {
-  memberAPI.fetchMembers()
-    .then((members) => {
-      dispatch(fetchMembersCompleted(members));
-    });
+  // memberAPI.fetchMembers()
+  //   .then((members) => {
+  //     dispatch(fetchMembersCompleted(members));
+  //   });
 };

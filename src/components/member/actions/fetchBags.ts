@@ -1,22 +1,22 @@
 import { actionTypes } from '../../../common/constants/actionTypes';
-import { MemberEntity, BagEntity } from '../../../model';
-import { memberAPI } from '../../../api/member';
+import { BagEntity } from '../../../model';
+import axios from 'axios'
 
-const bag = {
-  id: 1,
-  description: 'testact',
-  destination: 'testact',
-  username: 'leslie',
-}
+// const bag = {
+//   id: 1,
+//   description: 'testact',
+//   destination: 'testact',
+//   username: 'leslie',
+// }
 
 export const fetchBags = () => (dispatch) => {
-  // memberAPI.fetchMemberById(id)
-  //   .then((member) => {
-      dispatch(fetchMemberByIdCompleted(bag));
-    // });
+  axios.get('/bags')
+    .then((bag:any) => {
+      dispatch(fetchBagsCompleted(bag));
+    });
 };
 
-const fetchMemberByIdCompleted = (bag: BagEntity) => ({
+const fetchBagsCompleted = (bag: BagEntity) => ({
   type: actionTypes.FETCH_BAGS_COMPLETED,
   payload: bag,
 });
