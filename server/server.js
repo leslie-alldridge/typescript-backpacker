@@ -1,17 +1,16 @@
-var path = require('path')
-var express = require('express')
-var bodyParser = require('body-parser')
-// var cors = require('cors')
-// var passport = require('passport')
+const path = require("path");
+const express = require("express");
 
-var server = express()
+const apiRoutes = require("./routes/api");
 
-// server.use(cors('*'))
+const server = express();
 
-// server.use(passport.initialize())
-server.use(bodyParser.json())
-server.use(express.static(path.join(__dirname, '../dist')))
+server.use(express.static(path.join(__dirname, "../dist")));
 
-// server.use('/api/auth', require('./routes/auth'))
+server.use("/api/v1/", apiRoutes);
 
-module.exports = server
+server.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/index.html"));
+});
+
+module.exports = server;

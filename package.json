@@ -33,7 +33,11 @@
     "@types/node": "^10.12.21",
     "axios": "^0.18.0",
     "bootstrap": "^4.1.2",
+    "dotenv": "^6.2.0",
+    "express-jwt": "^5.3.1",
+    "knex": "^0.16.3",
     "lc-form-validation": "^1.0.0",
+    "passport": "^0.4.0",
     "react": "^16.4.1",
     "react-dom": "16.4.2",
     "react-emotion": "^10.0.0",
@@ -44,6 +48,7 @@
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
+    "sqlite3": "^4.0.6",
     "toastr": "^2.1.4",
     "typescript": "^3.0.1"
   }

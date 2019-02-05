@@ -1,13 +1,9 @@
-// require('dotenv').config()
+require("dotenv").config();
 
-// var Knex = require('knex')
-// var config = require('../knexfile')[process.env.NODE_ENV || 'development']
-// var knex = Knex(config)
+const server = require("./server");
 
-var server = require('./server')
-// server.set('db', knex)
-var PORT = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 
-server.listen(PORT, function () {
-  console.log('Listening on port', PORT)
-})
+server.listen(port, () => {
+  console.log("Server listening on port", port);
+});

@@ -10,7 +10,7 @@ import axios from 'axios'
 // }
 
 export const fetchBags = () => (dispatch) => {
-  axios.get('/bags')
+  axios.get('/api/v1/bags')
     .then((bag:any) => {
       dispatch(fetchBagsCompleted(bag));
     });
