@@ -1,9 +1,15 @@
 import * as React from "react";
+import {connect} from 'react-redux'
 import BagList from "./BagList";
 import UpdateBag from "./updatebag";
+import { BagItemEntity } from "../model";
+import { fetchBags } from "./member/actions/fetchBags";
 // import UpdateBag from "./UpdateBag";
 
-interface Props {}
+interface Props {
+  fetchBags: () => void;
+
+}
 
 interface State {
   viewList: boolean;
@@ -12,7 +18,7 @@ interface State {
   bagState: [];
 }
 
-class BagPage extends React.Component<Props, State> {
+export default class BagPage extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,6 +34,7 @@ class BagPage extends React.Component<Props, State> {
 
   componentDidMount() {
     //get bags
+    this.props.fetchBags()
   }
 
   addInventory(viewListID) {
@@ -121,5 +128,3 @@ class BagPage extends React.Component<Props, State> {
     );
   }
 }
-
-export default BagPage;

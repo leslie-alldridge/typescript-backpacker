@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Route, HashRouter as Router, Switch } from 'react-router-dom';
 import { App } from './app';
-import { FooterText, MembersPageContainer, MemberPageContainer } from './components';
+import { FooterText,  } from './components';
 import { Provider } from 'react-redux';
 import { store } from './store';
 
@@ -15,9 +15,9 @@ export const AppRouter: React.StatelessComponent<{}> = () => {
           <Switch>
             <Route exact path="/" component={FooterText} />
             <Route path="/FooterText" component={FooterText} />
-            <Route path="/members" component={MembersPageContainer} />
-            <Route exact path="/member" component={MemberPageContainer} />
-            <Route path="/member/:id" component={MemberPageContainer} />
+            <Route path="/members" component={FooterText} />
+            <Route exact path="/member" component={FooterText} />
+            <Route path="/member/:id" component={FooterText} />
           </Switch>
         </div>
       </Router>
