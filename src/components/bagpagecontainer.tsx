@@ -12,7 +12,7 @@ const mapStateToProps = (state: State, ownProps: any) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchMemberById: (id: number) => dispatch(fetchBags())
+  fetchBags: () => dispatch(fetchBags())
  
 });
 

@@ -10,6 +10,7 @@ import RegisterForm from "./register";
 import LoginForm from './login'
 import BagPage from "./bagpage";
 import MainForm from "./mainform";
+import { BagePageContainer } from "./bagpagecontainer";
 // import Logout from "./Logout";
 // import Loading from "./Loading";
 
@@ -78,7 +79,7 @@ export default class Main extends React.Component<Props,{bags: [], formPage:bool
           <BagPage bagsData={this.props.auth} />
         )} */}
         <MainForm handleClick={this.handleClick}/>
-        <BagPage />
+        <BagePageContainer />
         <FooterText />
       </div>
     );

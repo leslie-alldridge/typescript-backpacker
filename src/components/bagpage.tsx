@@ -7,7 +7,7 @@ import { fetchBags } from "./member/actions/fetchBags";
 // import UpdateBag from "./UpdateBag";
 
 interface Props {
-  fetchBags: () => void;
+  fetchBags(): void;
 
 }
 
