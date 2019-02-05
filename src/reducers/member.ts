@@ -10,8 +10,8 @@ const createEmptyMember = (): MemberEntity => ({
 
 export const memberReducer = (state = createEmptyMember(), action) => {
   switch (action.type) {
-    case actionTypes.FETCH_MEMBER_BY_ID_COMPLETED:
-      return handleFetchMemberByIdCompleted(state, action.payload);
+    // case actionTypes.FETCH_MEMBER_BY_ID_COMPLETED:
+    //   return handleFetchMemberByIdCompleted(state, action.payload);
     case actionTypes.UPDATE_MEMBER_FIELD:
       return handleUpdateMemberField(state, action.payload);
   }
