@@ -3,11 +3,11 @@ import { BagItemEntity } from '../model';
 import { MemberFieldChangePayload } from '../components/member/actions/memberFieldChange';
 
 const createEmptyMember = (): BagItemEntity => ({
-  id: -1,
+  id: 0,
   archived: false,
-  bagid: "1",
-  bagItem: 'test',
-  username: 'leslie',
+  bagid: "",
+  bagItem: '',
+  username: '',
 });
 
 export const bagItemReducer = (state = createEmptyMember(), action) => {

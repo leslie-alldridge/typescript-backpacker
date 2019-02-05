@@ -3,13 +3,13 @@ import { BagEntity } from '../model';
 
 export const bagReducer = (state: BagEntity[] = [], action) => {
   switch (action.type) {
-    case actionTypes.FETCH_MEMBERS_COMPLETED:
-      return handleFetchMembersCompleted(state, action.payload);
+    case actionTypes.FETCH_BAGS_COMPLETED:
+      return handleFetchBagsCompleted(state, action.payload);
   }
 
   return state;
 };
 
-const handleFetchMembersCompleted = (state: BagEntity[], payload: BagEntity[]) => {
+const handleFetchBagsCompleted = (state: BagEntity[], payload: BagEntity[]) => {
   return payload;
 };
