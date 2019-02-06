@@ -79,7 +79,7 @@ router.post("/bags", (req, res) => {
   
   bags
     .addBags(req.body)
-    .then(data => {
+    .then(saved => {
       bags.getBags().then(data => {
         res.json({
           message: "This is your bag.",

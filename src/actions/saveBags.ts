@@ -7,6 +7,8 @@ export const saveBag = (bag: BagEntity) => (dispatch) => {
     
   axios.post('/api/v1/bags', bag)
     .then((data:any) => {
+        console.log(data);
+        
       dispatch(saveBagCompleted(data.data.bag));
     });
 };
