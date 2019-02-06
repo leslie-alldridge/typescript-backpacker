@@ -64,9 +64,7 @@ function sayHello(req, res, next) {
 //   auth.handleError
 // );
 
-router.get("/bags", (req, res) => {
-    console.log('hit');
-    
+router.get("/bags", (req, res) => {    
   bags.getBags().then(data => {
     res.json({
       message: "This is your bag.",

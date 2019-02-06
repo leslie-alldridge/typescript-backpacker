@@ -5,8 +5,9 @@ export const bagReducer = (state: BagEntity[] = [], action) => {
   switch (action.type) {
     case actionTypes.FETCH_BAGS_COMPLETED:
       return handleFetchBagsCompleted(state, action.payload);
+    case actionTypes.SAVE_BAG:
+      return handleFetchBagsCompleted(state, action.payload)
   }
-
   return state;
 };
 
