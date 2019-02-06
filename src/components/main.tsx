@@ -9,7 +9,7 @@ import { BagePageContainer } from "./bagpagecontainer";
 // import Loading from "./Loading";
 
 interface Props {
-saveBags(name, description, destination): ()=> void;
+saveBags(bag): ()=> void;
   //define interface for props here
   // saveBagToDB:(username, description, destination)=> void;
   auth: {user:{
@@ -32,6 +32,7 @@ export default class Main extends React.Component<Props,{bags: [], formPage:bool
 
   handleClick(e:any, description:string, destination:string) {
     console.log("clicked");
+    console.log(description, destination);
     
     e.preventDefault();
     const bag = {
@@ -40,9 +41,7 @@ export default class Main extends React.Component<Props,{bags: [], formPage:bool
       username: 'leslie'
     }
     this.props.saveBags(
-      'leslie',
-      description,
-      destination
+      bag
     );
   }
 

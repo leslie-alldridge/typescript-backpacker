@@ -3,7 +3,9 @@ import { BagEntity } from '../model';
 import axios from 'axios'
 
 export const saveBag = (bag: BagEntity) => (dispatch) => {
-  axios.post('/api/v1/bags')
+    console.log(bag);
+    
+  axios.post('/api/v1/bags', bag)
     .then((data:any) => {
       dispatch(saveBagCompleted(data.data.bag));
     });

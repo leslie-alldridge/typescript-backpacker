@@ -11,12 +11,15 @@ function getBags(testDb) {
     // .where("username", username);
 }
 
-function addBags(username, description, destination, testDb) {
+function addBags(bag, testDb) {
+  console.log(bag);
+  
   const connection = testDb || knex;
   return connection("bags").insert({
-    username: username,
-    destination: destination,
-    description: description
+    bag: 'testbag',
+    description: bag.description,
+    destination: bag.destination,
+    username: bag.username
   });
 }
 

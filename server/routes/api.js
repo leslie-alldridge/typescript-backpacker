@@ -75,14 +75,15 @@ router.get("/bags", (req, res) => {
 
 router.post("/bags", (req, res) => {
   console.log('hit');
+  console.log(req.body);
   
   bags
-    .addBags(req.user.username, req.body.description, req.body.destination)
+    .addBags(req.body)
     .then(data => {
-      bags.getBags(req.user.username).then(userBag => {
+      bags.getBags().then(data => {
         res.json({
           message: "This is your bag.",
-          bag: userBag
+          bag: data
         });
       });
     });
