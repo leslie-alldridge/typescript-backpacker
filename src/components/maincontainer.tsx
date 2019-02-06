@@ -1,18 +1,18 @@
 import { connect } from 'react-redux';
 import { State } from '../reducers';
-import { fetchBags } from '../actions/fetchBags';
-import  BagePage  from './bagpage';
+import { saveBag } from '../actions/saveBags';
+import  Main  from './main';
 
 const mapStateToProps = (state: State, ownProps: any) => ({
   bags: state.bag,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchBags: () => dispatch(fetchBags())
+  saveBags: (bag) => dispatch(saveBag(bag))
  
 });
 
-export const BagePageContainer = connect(
+export const MainPageContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(BagePage);
+)(Main);

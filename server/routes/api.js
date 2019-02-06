@@ -74,6 +74,8 @@ router.get("/bags", (req, res) => {
 });
 
 router.post("/bags", (req, res) => {
+  console.log('hit');
+  
   bags
     .addBags(req.user.username, req.body.description, req.body.destination)
     .then(data => {

@@ -1,5 +1,4 @@
 import * as React from "react";
-import { connect } from "react-redux";
 import { FooterText} from "./Footer";
 import { Header } from "./header";
 import RegisterForm from "./register";
@@ -10,7 +9,9 @@ import { BagePageContainer } from "./bagpagecontainer";
 // import Loading from "./Loading";
 
 interface Props {
+saveBags(name, description, destination): ()=> void;
   //define interface for props here
+  // saveBagToDB:(username, description, destination)=> void;
   auth: {user:{
     username: string
   }};
@@ -33,11 +34,16 @@ export default class Main extends React.Component<Props,{bags: [], formPage:bool
     console.log("clicked");
     
     e.preventDefault();
-    // this.props.saveBagToDB(
-    //   this.props.auth.user.username,
-    //   description,
-    //   destination
-    // );
+    const bag = {
+      description,
+      destination,
+      username: 'leslie'
+    }
+    this.props.saveBags(
+      'leslie',
+      description,
+      destination
+    );
   }
 
   private registerToggle() {    
@@ -80,21 +86,3 @@ export default class Main extends React.Component<Props,{bags: [], formPage:bool
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    bags: state.bags,
-    auth: state.auth
-  };
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-   
-    }
-  };
-
-
- connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Main);
