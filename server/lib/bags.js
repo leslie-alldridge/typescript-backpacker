@@ -23,7 +23,7 @@ function addBags(bag, testDb) {
   });
 }
 
-function deleteBag(id, username, testDb) {
+function deleteBag(id, testDb) {
   const connection = testDb || knex;
   return connection("bags")
     .where("id", id)
@@ -31,7 +31,7 @@ function deleteBag(id, username, testDb) {
     .then(data => {
       return connection("bags")
         .select()
-        .where("username", username);
+        // .where("username", username);
     });
 }
 

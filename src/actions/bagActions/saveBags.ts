@@ -1,5 +1,5 @@
-import { actionTypes } from '../common/constants/actionTypes';
-import { BagEntity } from '../model';
+import { actionTypes } from '../../common/constants/actionTypes';
+import { BagEntity } from '../../model';
 import axios from 'axios'
 
 export const saveBag = (bag: BagEntity) => (dispatch) => {

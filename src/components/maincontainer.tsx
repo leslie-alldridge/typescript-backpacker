@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { State } from '../reducers';
-import { saveBag } from '../actions/saveBags';
+import { saveBag } from '../actions/bagActions/saveBags';
 import  Main  from './main';
 
 const mapStateToProps = (state: State, ownProps: any) => ({

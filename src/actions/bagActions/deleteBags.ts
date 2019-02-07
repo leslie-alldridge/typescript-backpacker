@@ -1,9 +1,9 @@
-import { actionTypes } from '../common/constants/actionTypes';
-import { BagEntity } from '../model';
+import { actionTypes } from '../../common/constants/actionTypes';
+import { BagEntity } from '../../model';
 import axios from 'axios'
 
-export const fetchBags = () => (dispatch) => {
-  axios.get('/api/v1/bags')
+export const deleteBags = (id) => (dispatch) => {
+  axios.delete(`/api/v1/bags/${id}`)
     .then((data:any) => {
       dispatch(fetchBagsCompleted(data.data.bag));
     });

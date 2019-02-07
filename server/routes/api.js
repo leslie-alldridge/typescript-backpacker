@@ -89,9 +89,13 @@ router.post("/bags", (req, res) => {
     });
 });
 
-router.post("/bagsdel", (req, res) => {
-  const { id } = req.body;
-  bags.deleteBag(id, req.user.username).then(delBag => {
+router.delete("/bags/:id", (req, res) => {
+  console.log('hit delete route');
+  
+  const { id } = req.params.id;
+  console.log(id);
+  
+  bags.deleteBag(id).then(delBag => {
     res.json({
       message: "deleted bag",
       bag: delBag
