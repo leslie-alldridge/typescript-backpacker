@@ -91,8 +91,11 @@ router.post("/bags", (req, res) => {
 
 router.delete("/bags/:id", (req, res) => {
   console.log('hit delete route');
+  console.log(req.params);
+  console.log(req.body);
   
-  const { id } = req.params.id;
+  
+  const { id } = req.params;
   console.log(id);
   
   bags.deleteBag(id).then(delBag => {

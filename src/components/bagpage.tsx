@@ -1,10 +1,12 @@
 import * as React from "react";
 import BagList from "./BagList";
 import UpdateBag from "./updatebag";
+import { BagEntity } from "../model";
 
 interface Props {
   fetchBags(): void;
-
+  deleteBags(id): void;
+  bags: BagEntity[];
 }
 
 interface State {
@@ -50,6 +52,9 @@ export default class BagPage extends React.Component<Props, State> {
 
   deleteItem(id) {
     //delete bag id
+    console.log('click', id);
+    
+    this.props.deleteBags(id)
   }
 
   render() {
@@ -64,7 +69,7 @@ export default class BagPage extends React.Component<Props, State> {
           {this.state.viewBagUpdate && (
             <UpdateBag key={1} id={1} description="test" destination="desc" />
           )}
-          {/* {this.props.bagsData.bag.map(bag => (
+          {this.props.bags.map(bag => (
             <div key={bag.id} id="card" className="card">
               <div
                 data-aos="flip-up"
@@ -108,7 +113,7 @@ export default class BagPage extends React.Component<Props, State> {
                     destination={bag.destination}
                   />
                 )}
-                {this.state.viewBagUpdate === bag.id && (
+                {/* {this.state.viewBagUpdate === bag.id && (
                   <UpdateBag
                     key={bag.id}
                     id={bag.id}
@@ -116,9 +121,9 @@ export default class BagPage extends React.Component<Props, State> {
                     destination={bag.destination}
                   />
                 )} */}
-          {/* </div>
+          </div>
             </div>
-          ))} */}
+          ))}
         </div>
       </div>
     );

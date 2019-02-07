@@ -3,6 +3,8 @@ import { BagEntity } from '../../model';
 import axios from 'axios'
 
 export const deleteBags = (id) => (dispatch) => {
+    console.log('actions');
+    
   axios.delete(`/api/v1/bags/${id}`)
     .then((data:any) => {
       dispatch(fetchBagsCompleted(data.data.bag));
