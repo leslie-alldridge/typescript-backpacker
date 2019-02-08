@@ -1,13 +1,15 @@
 import * as React from "react";
 import BagList from "./baglist";
 import UpdateBag from "./updatebag";
-import { BagEntity } from "../../model";
+import { BagEntity, BagItemEntity } from "../../model";
 
 interface Props {
   fetchBags(): void;
   deleteBags(id): void;
   updateBags(id, description, destination): void;
+  showItems(id): void;
   bags: BagEntity[];
+  bagItem: BagItemEntity[];
 }
 
 interface State {
@@ -41,7 +43,7 @@ export default class BagPage extends React.Component<Props, State> {
       viewListID: prevState.viewListID == viewListID ? null : viewListID,
       viewBagUpdate: null
     }));
-    //show items
+    this.props.showItems(viewListID)
   }
 
   updateBagToggle(id) {
@@ -103,6 +105,8 @@ export default class BagPage extends React.Component<Props, State> {
                 </button>
                 {this.state.viewListID === bag.id && (
                   <BagList
+                  showItems={this.props.showItems}
+                  bagItem={this.props.bagItem}
                     key={bag.id}
                     id={bag.id}
                     description={bag.description}

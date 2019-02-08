@@ -1,10 +1,13 @@
 import * as React from "react";
+import { BagItemEntity } from "../../model";
 
 interface Props {
   key: number;
   id: number;
   description: string;
   destination: string;
+  showItems(id): void;
+  bagItem: BagItemEntity[];
 }
 
 interface State {
@@ -72,21 +75,22 @@ class BagList extends React.Component<Props, State> {
               </form>
               <hr />
               <ul>
-                {/* {this.props.state.bagItems.map(item => {
-                  if (item.archived == 1)
+                {console.log(this.props)}
+                {this.props.bagItem.map(item => {
+                  if (item.archived == true)
                     return (
                       <li key={item.id}>
-                        {item.bagitem}
+                        {item.bagItem}
                         <i
                           onClick={() => {
-                            this.checkItem(this.props.id, item.bagitem);
+                            this.checkItem(this.props.id, item.bagItem);
                           }}
                           className="fas fa-check"
                           id="tick"
                         />
                       </li>
                     );
-                })} */}
+                })}
               </ul>
             </div>
           </div>
@@ -94,21 +98,21 @@ class BagList extends React.Component<Props, State> {
             <div className="todolist">
               <h4>Items Checked</h4>
               <ul id="done-items" className="list-unstyled">
-                {/* {this.props.state.bagItems.map(item => {
-                  if (item.archived == 0)
+                {this.props.bagItem.map(item => {
+                  if (item.archived == false)
                     return (
                       <li key={item.id}>
-                        {item.bagitem}
+                        {item.bagItem}
                         <i
                           onClick={() => {
-                            this.delete(item.id, item.bagid, item.bagitem);
+                            this.delete(item.id, item.bagid, item.bagItem);
                           }}
                           id="trash"
                           className="fas fa-trash-alt"
                         />
                       </li>
                     );
-                })} */}
+                })}
               </ul>
             </div>
           </div>

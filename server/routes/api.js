@@ -2,7 +2,7 @@ const express = require("express");
 const verifyJwt = require("express-jwt");
 
 const bags = require("../lib/bags");
-
+const items = require("../lib/items")
 const router = express.Router();
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
@@ -74,9 +74,6 @@ router.get("/bags", (req, res) => {
 });
 
 router.post("/bags", (req, res) => {
-  console.log('hit');
-  console.log(req.body);
-  
   bags
     .addBags(req.body)
     .then(saved => {
@@ -99,9 +96,7 @@ router.delete("/bags/:id", (req, res) => {
   });
 });
 
-router.post("/bags/update/:id", (req, res) => {
-  console.log(req.body);
-  
+router.post("/bags/update/:id", (req, res) => {  
   bags
     .updateBag(
       req.params.id,
@@ -126,8 +121,8 @@ router.post("/itemadd", (req, res) => {
   });
 });
 
-router.get("/itemshow", (req, res) => {
-  bags.getBagItem(req.user.username, req.query.bagid).then(data => {
+router.get("/items/:id", (req, res) => {
+  items.getItems(req.params.id).then(data => {
     res.json({
       message: "These are your bag items.",
       bagItems: data

@@ -1,7 +1,7 @@
 import { actionTypes } from '../common/constants/actionTypes';
 import { BagItemEntity } from '../model';
 
-const createEmptyMember = (): BagItemEntity => ({
+const createEmptyItem = (): BagItemEntity => ({
   id: 0,
   archived: false,
   bagid: "",
@@ -9,10 +9,10 @@ const createEmptyMember = (): BagItemEntity => ({
   username: '',
 });
 
-export const bagItemReducer = (state = createEmptyMember(), action) => {
+export const bagItemReducer = (state = createEmptyItem(), action) => {
   switch (action.type) {
-    // case actionTypes.FETCH_BAGS_COMPLETED:
-    //   return handleFetchMemberByIdCompleted(state, action.payload);
+    case actionTypes.FETCH_ITEMS_COMPLETED:
+      return handleFetchItemsCompleted(state, action.payload);
     // case actionTypes.UPDATE_MEMBER_FIELD:
     //   return handleUpdateMemberField(state, action.payload);
   }
@@ -20,9 +20,9 @@ export const bagItemReducer = (state = createEmptyMember(), action) => {
   return state;
 };
 
-// const handleFetchMemberByIdCompleted = (state: BagItemEntity = createEmptyMember(), payload: BagItemEntity = createEmptyMember()): BagItemEntity => {
-//   return payload;
-// };
+const handleFetchItemsCompleted = (state: BagItemEntity = createEmptyItem(), payload: BagItemEntity = createEmptyItem()): BagItemEntity => {
+  return payload;
+};
 
 // const handleUpdateMemberField = (state: BagItemEntity = createEmptyMember(), payload: MemberFieldChangePayload): BagItemEntity => {
 //   return {
