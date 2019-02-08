@@ -46,7 +46,7 @@ function updateBag(id, destination, description, username, testDb) {
     .then(data => {
       return connection("bags")
         .select()
-        .where("username", username);
+        // .where("username", username);
     });
 }
 

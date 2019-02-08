@@ -104,10 +104,10 @@ router.post("/bags/update/:id", (req, res) => {
   
   bags
     .updateBag(
-      req.body.id,
+      req.params.id,
       req.body.destination,
       req.body.description,
-      req.user.username
+      'leslie'
     )
     .then(updBag => {
       res.json({
