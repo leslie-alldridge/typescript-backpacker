@@ -1,10 +1,10 @@
 import * as React from "react";
-import { FooterText} from "./Footer";
-import { Header } from "./header";
-import RegisterForm from "./register";
-import LoginForm from './login'
+import { FooterText} from "./common/footer";
+import { Header } from "./common/header";
+import RegisterForm from "./auth/register";
+import LoginForm from './auth/login'
 import MainForm from "./mainform";
-import { BagePageContainer } from "./bagpagecontainer";
+import { BagePageContainer } from "./bags/bagpagecontainer";
 // import Logout from "./Logout";
 // import Loading from "./Loading";
 

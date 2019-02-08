@@ -1,7 +1,7 @@
 import * as React from "react";
-import BagList from "./BagList";
+import BagList from "./baglist";
 import UpdateBag from "./updatebag";
-import { BagEntity } from "../model";
+import { BagEntity } from "../../model";
 
 interface Props {
   fetchBags(): void;
