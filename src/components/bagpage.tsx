@@ -6,13 +6,14 @@ import { BagEntity } from "../model";
 interface Props {
   fetchBags(): void;
   deleteBags(id): void;
+  updateBags(id, description, destination): void;
   bags: BagEntity[];
 }
 
 interface State {
   viewList: boolean;
   viewListID: number;
-  viewBagUpdate: boolean;
+  viewBagUpdate: number;
   bagState: [];
 }
 
@@ -22,7 +23,7 @@ export default class BagPage extends React.Component<Props, State> {
     this.state = {
       viewList: false,
       viewListID: null,
-      viewBagUpdate: null,
+      viewBagUpdate: 0,
       bagState: []
     };
     this.updateBagToggle = this.updateBagToggle.bind(this);
@@ -64,11 +65,6 @@ export default class BagPage extends React.Component<Props, State> {
           <h3 id="bagHead">
             <i className="fas fa-suitcase" /> Your Current Bags :
           </h3>
-          <BagList key={1} id={1} description="test" destination="desc" />
-
-          {this.state.viewBagUpdate && (
-            <UpdateBag key={1} id={1} description="test" destination="desc" />
-          )}
           {this.props.bags.map(bag => (
             <div key={bag.id} id="card" className="card">
               <div
@@ -113,14 +109,15 @@ export default class BagPage extends React.Component<Props, State> {
                     destination={bag.destination}
                   />
                 )}
-                {/* {this.state.viewBagUpdate === bag.id && (
+                {this.state.viewBagUpdate == bag.id && (
                   <UpdateBag
+                    updateBags={this.props.updateBags}
                     key={bag.id}
                     id={bag.id}
                     description={bag.description}
                     destination={bag.destination}
                   />
-                )} */}
+                )}
           </div>
             </div>
           ))}

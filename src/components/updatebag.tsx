@@ -10,6 +10,7 @@ interface Props {
     id: number;
     description: string;
     destination: string;
+    updateBags: (id, description, destination) => void;
 }
 
 class UpdateBag extends React.Component<Props, State> {
@@ -36,16 +37,8 @@ class UpdateBag extends React.Component<Props, State> {
   }
 
   updateBagDB(e, id, destination, description) {
-    // $("#checkAll").click(event => {
-    //   const form = $("#theForm");
-    //   if (form[0].checkValidity() === false) {
-    //     event.preventDefault();
-    //     event.stopPropagation();
-    //   }
-    //   form.addClass("was-validated");
-    // });
     e.preventDefault();
-    // this.props.updateBagDB(id, destination, description);
+    this.props.updateBags(id, destination, description);
     this.setState({
       updateInput: '',
       desInput: '',
@@ -72,7 +65,6 @@ class UpdateBag extends React.Component<Props, State> {
                   type="text"
                   className="form-control add-todo"
                   placeholder="New bag description"
-                  value=""
                   />
                </div>
                <div className="form-group">
@@ -82,7 +74,6 @@ class UpdateBag extends React.Component<Props, State> {
                   className="form-control add-todo"
                   placeholder="New bag destination"
                   id="bottomInput"
-                  value=""
                   />
                </div>
                <button
