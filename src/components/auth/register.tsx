@@ -2,6 +2,7 @@ import * as React from "react";
 
 interface Props {
   registerToggle(): void;
+  registerUser: (creds) => void;
 }
 
 interface State {
@@ -44,6 +45,7 @@ class RegisterForm extends React.Component<Props, State> {
       username: username.trim(),
       password: password.trim()
     };
+    this.props.registerUser(creds);
   }
 
   render() {
