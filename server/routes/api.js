@@ -111,8 +111,6 @@ router.post("/bags/update/:id", (req, res) => {
 });
 
 router.post("/items/:id", (req, res) => {
-  console.log(req.body);
-
   items.addItem("leslie", req.params.id, req.body.input).then(data => {
     res.json({
       message: "These are your bag items.",
@@ -130,26 +128,15 @@ router.get("/items/:id", (req, res) => {
   });
 });
 
-router.post("/items/archive/:id", (req, res) => {
+router.delete("/items/:id", (req, res) => {
+  console.log("hit");
   console.log(req.body);
-
-  items.archiveBagItem("leslie", req.params.id, req.body.item).then(data => {
+  items.deleteItem("leslie", req.body.bagid, req.body.item).then(data => {
     res.json({
-      message: "These are your updated bag items.",
+      message: "These are your new bag items.",
       bagItems: data
     });
   });
-});
-
-router.post("/itemdel", (req, res) => {
-  bags
-    .deleteBagItem(req.user.username, req.body.bagid, req.body.item)
-    .then(data => {
-      res.json({
-        message: "These are your new bag items.",
-        bagItems: data
-      });
-    });
 });
 
 module.exports = router;

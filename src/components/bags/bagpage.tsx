@@ -10,6 +10,7 @@ interface Props {
   showItems(id): void;
   checkItem(id, item): void;
   saveItem(id, item): void;
+  deleteItem(id, bagid, input): void;
   bags: BagEntity[];
   item: BagItemEntity[];
 }
@@ -36,7 +37,6 @@ export default class BagPage extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    //get bags
     this.props.fetchBags();
   }
 
@@ -56,9 +56,6 @@ export default class BagPage extends React.Component<Props, State> {
   }
 
   deleteItem(id) {
-    //delete bag id
-    console.log("click", id);
-
     this.props.deleteBags(id);
   }
 
@@ -107,6 +104,7 @@ export default class BagPage extends React.Component<Props, State> {
                 </button>
                 {this.state.viewListID === bag.id && (
                   <BagList
+                    deleteItem={this.props.deleteItem}
                     saveItem={this.props.saveItem}
                     checkItem={this.props.checkItem}
                     showItems={this.props.showItems}

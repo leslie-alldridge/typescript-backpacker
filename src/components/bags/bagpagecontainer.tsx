@@ -4,7 +4,12 @@ import { fetchBags } from "../../actions/bagActions";
 import BagePage from "./bagpage";
 import { deleteBags } from "../../actions/bagActions";
 import { updateBag } from "../../actions/bagActions";
-import { showItems, archiveItem, saveItem } from "../../actions/bagItemActions";
+import {
+  showItems,
+  archiveItem,
+  saveItem,
+  deleteItem
+} from "../../actions/bagItemActions";
 
 const mapStateToProps = (state: State, ownProps: any) => ({
   bags: state.bag,
@@ -18,7 +23,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(updateBag(id, destination, description)),
   showItems: id => dispatch(showItems(id)),
   checkItem: (id, item) => dispatch(archiveItem(id, item)),
-  saveItem: (id, item) => dispatch(saveItem(id, item))
+  saveItem: (id, item) => dispatch(saveItem(id, item)),
+  deleteItem: (id, bagid, input) => dispatch(deleteItem(id, bagid, input))
 });
 
 export const BagePageContainer = connect(

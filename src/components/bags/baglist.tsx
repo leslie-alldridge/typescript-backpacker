@@ -9,6 +9,7 @@ interface Props {
   showItems(id): void;
   checkItem(id, item): void;
   saveItem(id, item): void;
+  deleteItem(id, bagid, input): void;
   item: BagItemEntity[];
 }
 
@@ -29,7 +30,7 @@ class BagList extends React.Component<Props, State> {
   }
 
   delete(id, bagid, input) {
-    console.log("delete bag");
+    this.props.deleteItem(id, bagid, input);
   }
 
   formChange(e) {
@@ -39,12 +40,12 @@ class BagList extends React.Component<Props, State> {
   }
 
   checkItem(id, item) {
-    this.props.checkItem(id, item)
+    this.props.checkItem(id, item);
   }
 
   saveItem(e, id, input) {
     e.preventDefault();
-    this.props.saveItem(id, input)
+    this.props.saveItem(id, input);
     this.setState({
       formInput: ""
     });

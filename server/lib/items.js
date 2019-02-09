@@ -39,8 +39,21 @@ function addItem(username, id, input, testDb) {
     });
 }
 
+function deleteItem(username, bagid, item, testDb) {
+  const connection = testDb || knex;
+  return connection("bagitems")
+    .where("bagitem", item)
+    .del()
+    .then(data => {
+      return connection("bagitems")
+        .select()
+        .where({ bagid: bagid });
+    });
+}
+
 module.exports = {
   getItems,
   archiveBagItem,
-  addItem
+  addItem,
+  deleteItem
 };

@@ -47,22 +47,9 @@ function updateBag(id, destination, description, username, testDb) {
     });
 }
 
-function deleteBagItem(username, bagid, item, testDb) {
-  const connection = testDb || knex;
-  return connection("bagitems")
-    .where("bagitem", item)
-    .del()
-    .then(data => {
-      return connection("bagitems")
-        .select()
-        .where({ username: username, bagid: bagid });
-    });
-}
-
 module.exports = {
   getBags,
   addBags,
   deleteBag,
-  updateBag,
-  deleteBagItem
+  updateBag
 };
