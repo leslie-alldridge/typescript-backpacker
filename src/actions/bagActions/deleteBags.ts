@@ -1,17 +1,14 @@
-import { actionTypes } from '../../common/constants/actionTypes';
-import { BagEntity } from '../../model';
-import axios from 'axios'
+import { actionTypes } from "../../common/constants/actionTypes";
+import { BagEntity } from "../../model";
+import axios from "axios";
 
-export const deleteBags = (id) => (dispatch) => {
-    console.log('actions');
-    
-  axios.delete(`/api/v1/bags/${id}`)
-    .then((data:any) => {
-      dispatch(fetchBagsCompleted(data.data.bag));
-    });
+export const deleteBags = id => dispatch => {
+  axios.delete(`/api/v1/bags/${id}`).then((data: any) => {
+    dispatch(fetchBagsCompleted(data.data.bag));
+  });
 };
 
 const fetchBagsCompleted = (bag: BagEntity) => ({
   type: actionTypes.FETCH_BAGS_COMPLETED,
-  payload: bag,
+  payload: bag
 });

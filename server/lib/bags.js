@@ -9,8 +9,6 @@ function getBags(testDb) {
 }
 
 function addBags(bag, testDb) {
-  console.log(bag);
-
   const connection = testDb || knex;
   return connection("bags").insert({
     bag: "testbag",
