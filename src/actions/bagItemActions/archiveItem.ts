@@ -5,7 +5,7 @@ import axios from 'axios'
 export const archiveItem = (id, item) => (dispatch) => {
     console.log('actions');
     
-  axios.post(`/api/v1/items/archive/${id}`, item)
+  axios.post(`/api/v1/items/archive/${id}`, {'item':item})
     .then((data:any) => {
       dispatch(fetchItemsCompleted(data.data.bagItems));
     });

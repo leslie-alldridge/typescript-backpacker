@@ -9,6 +9,21 @@ function getItems(id, testDb) {
     .where({bagid: id });
 }
 
+function archiveBagItem(username, id, item, testDb) {
+  const connection = testDb || knex;
+  return connection("bagitems")
+    .where({ bagid: id, bagitem: item })
+    .update({
+      archived: false
+    })
+    .then(data => {
+      return connection("bagitems")
+        .select()
+        .where({ bagid: id });
+    });
+}
+
 module.exports = {
-  getItems
+  getItems,
+  archiveBagItem
 };

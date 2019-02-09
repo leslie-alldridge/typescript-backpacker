@@ -130,9 +130,10 @@ router.get("/items/:id", (req, res) => {
   });
 });
 
-router.post("/itemarchive", (req, res) => {
-  bags
-    .archiveBagItem(req.user.username, req.body.id, req.body.item)
+router.post("/items/archive/:id", (req, res) => {
+  console.log(req.body);
+  
+items.archiveBagItem('leslie', req.params.id, req.body.item)
     .then(data => {
       res.json({
         message: "These are your updated bag items.",
