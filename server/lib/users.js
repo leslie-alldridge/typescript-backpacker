@@ -11,11 +11,16 @@ module.exports = {
 };
 
 function create(username, password, testDb) {
-  const hash = crypto.generate(password);
   const connection = testDb || knex;
-  return connection("users").insert({
-    username: username,
-    hash: hash
+
+  return new Promise((resolve, reject) => {
+    crypto.generate(password, (err, hash) => {
+      if (err) reject(err);
+      connection("users")
+        .insert({ username, hash })
+        .then(user_id => resolve(user_id))
+        .catch(err => reject(err));
+    });
   });
 }
 
