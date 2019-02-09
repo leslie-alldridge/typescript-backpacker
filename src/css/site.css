@@ -81,7 +81,7 @@ body {
   }
   
   #header {
-    background-image: url('/head.jpg');
+    background-image: url('../images/head.jpg');
     background-size: cover;
   }
   
