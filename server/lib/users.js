@@ -1,7 +1,6 @@
 const environment = process.env.NODE_ENV || "development";
 const config = require("../../knexfile")[environment];
 const knex = require("knex")(config);
-
 const crypto = require("./crypto");
 
 module.exports = {
@@ -12,11 +11,8 @@ module.exports = {
 };
 
 function create(username, password, testDb) {
-  console.log(username, password);
-
   const hash = crypto.generate(password);
   const connection = testDb || knex;
-
   return connection("users").insert({
     username: username,
     hash: hash
