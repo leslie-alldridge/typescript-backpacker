@@ -9,7 +9,7 @@ interface Props {
   updateBags(id, description, destination): void;
   showItems(id): void;
   bags: BagEntity[];
-  bagItem: BagItemEntity[];
+  item: BagItemEntity[];
 }
 
 interface State {
@@ -106,7 +106,7 @@ export default class BagPage extends React.Component<Props, State> {
                 {this.state.viewListID === bag.id && (
                   <BagList
                   showItems={this.props.showItems}
-                  bagItem={this.props.bagItem}
+                  item={this.props.item}
                     key={bag.id}
                     id={bag.id}
                     description={bag.description}

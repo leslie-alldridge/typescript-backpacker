@@ -5,10 +5,10 @@ import { bagItemReducer } from './bagItem';
 
 export interface State {
   bag: BagEntity[];
-  bagItem: BagItemEntity;
+  item: BagItemEntity[];
 };
 
 export const state = combineReducers<State>({
   bag: bagReducer,
-  bagItem: bagItemReducer,
+  item: bagItemReducer,
 });

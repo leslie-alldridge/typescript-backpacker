@@ -8,7 +8,7 @@ import { showItems } from '../../actions/bagItemActions/showItems';
 
 const mapStateToProps = (state: State, ownProps: any) => ({
   bags: state.bag,
-  item: state.bagItem
+  item: state.item
 });
 
 const mapDispatchToProps = (dispatch) => ({

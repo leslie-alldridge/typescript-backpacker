@@ -7,7 +7,7 @@ interface Props {
   description: string;
   destination: string;
   showItems(id): void;
-  bagItem: BagItemEntity[];
+  item: BagItemEntity[];
 }
 
 interface State {
@@ -76,14 +76,14 @@ class BagList extends React.Component<Props, State> {
               <hr />
               <ul>
                 {console.log(this.props)}
-                {this.props.bagItem.map(item => {
+                {this.props.item.map(item => {
                   if (item.archived == true)
                     return (
                       <li key={item.id}>
-                        {item.bagItem}
+                        {item.bagitem}
                         <i
                           onClick={() => {
-                            this.checkItem(this.props.id, item.bagItem);
+                            this.checkItem(this.props.id, item.bagitem);
                           }}
                           className="fas fa-check"
                           id="tick"
@@ -98,14 +98,14 @@ class BagList extends React.Component<Props, State> {
             <div className="todolist">
               <h4>Items Checked</h4>
               <ul id="done-items" className="list-unstyled">
-                {this.props.bagItem.map(item => {
+                {this.props.item.map(item => {
                   if (item.archived == false)
                     return (
                       <li key={item.id}>
-                        {item.bagItem}
+                        {item.bagitem}
                         <i
                           onClick={() => {
-                            this.delete(item.id, item.bagid, item.bagItem);
+                            this.delete(item.id, item.bagid, item.bagitem);
                           }}
                           id="trash"
                           className="fas fa-trash-alt"
