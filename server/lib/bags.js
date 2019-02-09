@@ -3,20 +3,19 @@ const config = require("../../knexfile")[environment];
 const knex = require("knex")(config);
 
 function getBags(testDb) {
-    console.log('hit');
-    
+  console.log("hit");
+
   const connection = testDb || knex;
-  return connection("bags")
-    .select()
-    // .where("username", username);
+  return connection("bags").select();
+  // .where("username", username);
 }
 
 function addBags(bag, testDb) {
   console.log(bag);
-  
+
   const connection = testDb || knex;
   return connection("bags").insert({
-    bag: 'testbag',
+    bag: "testbag",
     description: bag.description,
     destination: bag.destination,
     username: bag.username
@@ -29,9 +28,8 @@ function deleteBag(id, testDb) {
     .where("id", id)
     .del()
     .then(data => {
-      return connection("bags")
-        .select()
-        // .where("username", username);
+      return connection("bags").select();
+      // .where("username", username);
     });
 }
 
@@ -44,36 +42,10 @@ function updateBag(id, destination, description, username, testDb) {
       description: description
     })
     .then(data => {
-      return connection("bags")
-        .select()
-        // .where("username", username);
+      return connection("bags").select();
+      // .where("username", username);
     });
 }
-
-function addBagItem(username, id, input, testDb) {
-  const connection = testDb || knex;
-  return connection("bagitems")
-    .insert({
-      bagid: id,
-      username: username,
-      bagitem: input,
-      archived: true
-    })
-    .then(data => {
-      return connection("bagitems").where({
-        bagid: id
-      });
-    });
-}
-
-function getBagItem(username, id, testDb) {
-  const connection = testDb || knex;
-  return connection("bagitems")
-    .select()
-    .where({ username: username, bagid: id });
-}
-
-
 
 function deleteBagItem(username, bagid, item, testDb) {
   const connection = testDb || knex;
@@ -92,8 +64,5 @@ module.exports = {
   addBags,
   deleteBag,
   updateBag,
-  addBagItem,
-  getBagItem,
- 
   deleteBagItem
 };

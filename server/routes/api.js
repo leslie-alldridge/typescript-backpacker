@@ -2,7 +2,7 @@ const express = require("express");
 const verifyJwt = require("express-jwt");
 
 const bags = require("../lib/bags");
-const items = require("../lib/items")
+const items = require("../lib/items");
 const router = express.Router();
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
@@ -64,7 +64,7 @@ function sayHello(req, res, next) {
 //   auth.handleError
 // );
 
-router.get("/bags", (req, res) => {    
+router.get("/bags", (req, res) => {
   bags.getBags().then(data => {
     res.json({
       message: "This is your bag.",
@@ -74,20 +74,18 @@ router.get("/bags", (req, res) => {
 });
 
 router.post("/bags", (req, res) => {
-  bags
-    .addBags(req.body)
-    .then(saved => {
-      bags.getBags().then(data => {
-        res.json({
-          message: "This is your bag.",
-          bag: data
-        });
+  bags.addBags(req.body).then(saved => {
+    bags.getBags().then(data => {
+      res.json({
+        message: "This is your bag.",
+        bag: data
       });
     });
+  });
 });
 
-router.delete("/bags/:id", (req, res) => {  
-  const { id } = req.params;  
+router.delete("/bags/:id", (req, res) => {
+  const { id } = req.params;
   bags.deleteBag(id).then(delBag => {
     res.json({
       message: "deleted bag",
@@ -96,13 +94,13 @@ router.delete("/bags/:id", (req, res) => {
   });
 });
 
-router.post("/bags/update/:id", (req, res) => {  
+router.post("/bags/update/:id", (req, res) => {
   bags
     .updateBag(
       req.params.id,
       req.body.destination,
       req.body.description,
-      'leslie'
+      "leslie"
     )
     .then(updBag => {
       res.json({
@@ -112,8 +110,10 @@ router.post("/bags/update/:id", (req, res) => {
     });
 });
 
-router.post("/itemadd", (req, res) => {
-  bags.addBagItem(req.user.username, req.body.id, req.body.input).then(data => {
+router.post("/items/:id", (req, res) => {
+  console.log(req.body);
+
+  items.addItem("leslie", req.params.id, req.body.input).then(data => {
     res.json({
       message: "These are your bag items.",
       bagItems: data
@@ -132,14 +132,13 @@ router.get("/items/:id", (req, res) => {
 
 router.post("/items/archive/:id", (req, res) => {
   console.log(req.body);
-  
-items.archiveBagItem('leslie', req.params.id, req.body.item)
-    .then(data => {
-      res.json({
-        message: "These are your updated bag items.",
-        bagItems: data
-      });
+
+  items.archiveBagItem("leslie", req.params.id, req.body.item).then(data => {
+    res.json({
+      message: "These are your updated bag items.",
+      bagItems: data
     });
+  });
 });
 
 router.post("/itemdel", (req, res) => {

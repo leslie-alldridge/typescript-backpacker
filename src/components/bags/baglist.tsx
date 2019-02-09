@@ -8,6 +8,7 @@ interface Props {
   destination: string;
   showItems(id): void;
   checkItem(id, item): void;
+  saveItem(id, item): void;
   item: BagItemEntity[];
 }
 
@@ -38,13 +39,12 @@ class BagList extends React.Component<Props, State> {
   }
 
   checkItem(id, item) {
-    console.log("check bag");
     this.props.checkItem(id, item)
   }
 
   saveItem(e, id, input) {
     e.preventDefault();
-    console.log("save bag");
+    this.props.saveItem(id, input)
     this.setState({
       formInput: ""
     });

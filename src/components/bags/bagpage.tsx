@@ -9,6 +9,7 @@ interface Props {
   updateBags(id, description, destination): void;
   showItems(id): void;
   checkItem(id, item): void;
+  saveItem(id, item): void;
   bags: BagEntity[];
   item: BagItemEntity[];
 }
@@ -36,7 +37,7 @@ export default class BagPage extends React.Component<Props, State> {
 
   componentDidMount() {
     //get bags
-    this.props.fetchBags()
+    this.props.fetchBags();
   }
 
   addInventory(viewListID) {
@@ -44,7 +45,7 @@ export default class BagPage extends React.Component<Props, State> {
       viewListID: prevState.viewListID == viewListID ? null : viewListID,
       viewBagUpdate: null
     }));
-    this.props.showItems(viewListID)
+    this.props.showItems(viewListID);
   }
 
   updateBagToggle(id) {
@@ -56,9 +57,9 @@ export default class BagPage extends React.Component<Props, State> {
 
   deleteItem(id) {
     //delete bag id
-    console.log('click', id);
-    
-    this.props.deleteBags(id)
+    console.log("click", id);
+
+    this.props.deleteBags(id);
   }
 
   render() {
@@ -106,9 +107,10 @@ export default class BagPage extends React.Component<Props, State> {
                 </button>
                 {this.state.viewListID === bag.id && (
                   <BagList
-                  checkItem={this.props.checkItem}
-                  showItems={this.props.showItems}
-                  item={this.props.item}
+                    saveItem={this.props.saveItem}
+                    checkItem={this.props.checkItem}
+                    showItems={this.props.showItems}
+                    item={this.props.item}
                     key={bag.id}
                     id={bag.id}
                     description={bag.description}
@@ -124,7 +126,7 @@ export default class BagPage extends React.Component<Props, State> {
                     destination={bag.destination}
                   />
                 )}
-          </div>
+              </div>
             </div>
           ))}
         </div>
