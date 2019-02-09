@@ -12,6 +12,8 @@ module.exports = {
 };
 
 function create(username, password, testDb) {
+  console.log(username, password);
+
   const hash = crypto.generate(password);
   const connection = testDb || knex;
 

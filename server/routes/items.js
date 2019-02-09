@@ -1,10 +1,22 @@
 const express = require("express");
-const verifyJwt = require("express-jwt");
-
 const items = require("../lib/items");
+const verifyJwt = require("express-jwt");
+const auth = require("../lib/auth");
+
 const router = express.Router();
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
+
+function getSecret(req, payload, done) {
+  done(null, process.env.JWT_SECRET);
+}
+
+router.use(
+  verifyJwt({
+    secret: getSecret
+  }),
+  auth.handleError
+);
 
 router.post("/:id", (req, res) => {
   items.addItem("leslie", req.params.id, req.body.input).then(data => {

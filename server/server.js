@@ -11,17 +11,6 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(path.join(__dirname, "../dist")));
 
-server.use("/api/v1/bags", bagRoutes);
-server.use("/api/v1/items", itemRoutes);
-
-server.post("/signin", signIn, auth.issueJwt);
-
-server.post("/register", register, auth.issueJwt);
-
-server.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "../dist/index.html"));
-});
-
 function signIn(req, res, next) {
   users
     .getByName(req.body.username)
@@ -42,8 +31,6 @@ function signIn(req, res, next) {
 }
 
 function register(req, res, next) {
-  console.log(req);
-
   users
     .exists(req.body.username)
     .then(exists => {
@@ -64,5 +51,16 @@ function invalidCredentials(res) {
     errorType: "INVALID_CREDENTIALS"
   });
 }
+
+server.use("/api/v1/bags", bagRoutes);
+server.use("/api/v1/items", itemRoutes);
+
+server.post("/signin", signIn, auth.issueJwt);
+
+server.post("/register", register, auth.issueJwt);
+
+server.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "../dist/index.html"));
+});
 
 module.exports = server;
