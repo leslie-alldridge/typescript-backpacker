@@ -7,6 +7,7 @@ interface Props {
   description: string;
   destination: string;
   showItems(id): void;
+  checkItem(id, item): void;
   item: BagItemEntity[];
 }
 
@@ -38,6 +39,7 @@ class BagList extends React.Component<Props, State> {
 
   checkItem(id, item) {
     console.log("check bag");
+    this.props.checkItem(id, item)
   }
 
   saveItem(e, id, input) {
@@ -75,7 +77,6 @@ class BagList extends React.Component<Props, State> {
               </form>
               <hr />
               <ul>
-                {console.log(this.props)}
                 {this.props.item.map(item => {
                   if (item.archived == true)
                     return (
