@@ -10,13 +10,10 @@ import { BagePageContainer } from "./bags/bagpagecontainer";
 
 interface Props {
   saveBags(bag): () => void;
+  registerUser(user): () => void;
   //define interface for props here
   // saveBagToDB:(username, description, destination)=> void;
-  auth: {
-    user: {
-      username: string;
-    };
-  };
+
   bags: [];
 }
 

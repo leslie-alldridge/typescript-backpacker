@@ -17,13 +17,15 @@ export function registerError(message) {
     type: actionTypes.REGISTER_FAILURE,
     isFetching: false,
     isAuthenticated: false,
-    message
+    message: message.response.data.message
   };
 }
 
 export function registerUser(creds) {
   return dispatch => {
     dispatch(requestRegister(creds));
+    console.log(creds);
+
     return axios
       .post("/register", creds)
       .then(response => {
@@ -31,7 +33,7 @@ export function registerUser(creds) {
           // If there was a problem, we want to
           // dispatch the error condition
           dispatch(registerError("Invalid Credentials"));
-          return Promise.reject(response.data.message);
+          return Promise.reject(response.data);
         } else {
           // If login was successful, set the token in local storage
           const userInfo = saveUserToken(response.data.token);
@@ -40,7 +42,9 @@ export function registerUser(creds) {
         }
       })
       .catch(err => {
-        dispatch(registerError(err.response.body.message));
+        console.info(err);
+
+        dispatch(registerError(err));
       });
   };
 }

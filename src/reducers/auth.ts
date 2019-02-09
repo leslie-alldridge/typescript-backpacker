@@ -1,7 +1,7 @@
 import { actionTypes } from "../common/constants/actionTypes";
-import { BagEntity } from "../model";
+import { AuthEntity } from "../model";
 
-export const bagReducer = (state: BagEntity[] = [], action) => {
+export const authReducer = (state: AuthEntity[] = [], action) => {
   switch (action.type) {
     case actionTypes.FETCH_BAGS_COMPLETED:
       return handleFetchBagsCompleted(state, action.payload);
@@ -11,6 +11,9 @@ export const bagReducer = (state: BagEntity[] = [], action) => {
   return state;
 };
 
-const handleFetchBagsCompleted = (state: BagEntity[], payload: BagEntity[]) => {
+const handleFetchBagsCompleted = (
+  state: AuthEntity[],
+  payload: AuthEntity[]
+) => {
   return payload;
 };

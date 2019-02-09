@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { BagEntity, BagItemEntity } from "../model";
+import { BagEntity, BagItemEntity, AuthEntity } from "../model";
 import { bagReducer } from "./bag";
 import { bagItemReducer } from "./bagItem";
 import { authReducer } from "./auth";
