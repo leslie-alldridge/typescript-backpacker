@@ -2,15 +2,10 @@ const express = require("express");
 const verifyJwt = require("express-jwt");
 
 const bags = require("../lib/bags");
-const items = require("../lib/items");
 const router = express.Router();
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 // router.post("/signin", sayHello, signIn, auth.issueJwt);
-
-function sayHello(req, res, next) {
-  next();
-}
 
 // router.post("/register", register, auth.issueJwt);
 
@@ -64,7 +59,7 @@ function sayHello(req, res, next) {
 //   auth.handleError
 // );
 
-router.get("/bags", (req, res) => {
+router.get("/", (req, res) => {
   bags.getBags().then(data => {
     res.json({
       message: "This is your bag.",
@@ -73,7 +68,7 @@ router.get("/bags", (req, res) => {
   });
 });
 
-router.post("/bags", (req, res) => {
+router.post("/", (req, res) => {
   bags.addBags(req.body).then(saved => {
     bags.getBags().then(data => {
       res.json({
@@ -84,7 +79,7 @@ router.post("/bags", (req, res) => {
   });
 });
 
-router.delete("/bags/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   const { id } = req.params;
   bags.deleteBag(id).then(delBag => {
     res.json({
@@ -94,7 +89,7 @@ router.delete("/bags/:id", (req, res) => {
   });
 });
 
-router.post("/bags/update/:id", (req, res) => {
+router.post("/update/:id", (req, res) => {
   bags
     .updateBag(
       req.params.id,
@@ -108,35 +103,6 @@ router.post("/bags/update/:id", (req, res) => {
         bag: updBag
       });
     });
-});
-
-router.post("/items/:id", (req, res) => {
-  items.addItem("leslie", req.params.id, req.body.input).then(data => {
-    res.json({
-      message: "These are your bag items.",
-      bagItems: data
-    });
-  });
-});
-
-router.get("/items/:id", (req, res) => {
-  items.getItems(req.params.id).then(data => {
-    res.json({
-      message: "These are your bag items.",
-      bagItems: data
-    });
-  });
-});
-
-router.delete("/items/:id", (req, res) => {
-  console.log("hit");
-  console.log(req.body);
-  items.deleteItem("leslie", req.body.bagid, req.body.item).then(data => {
-    res.json({
-      message: "These are your new bag items.",
-      bagItems: data
-    });
-  });
 });
 
 module.exports = router;
