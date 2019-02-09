@@ -12,7 +12,7 @@ server.use("/api/v1/bags", bagRoutes);
 server.use("/api/v1/items", itemRoutes);
 
 server.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/index.html"));
+  res.sendFile(path.join(__dirname, "../dist/index.html"));
 });
 
 module.exports = server;

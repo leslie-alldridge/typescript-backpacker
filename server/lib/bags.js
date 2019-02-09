@@ -3,8 +3,6 @@ const config = require("../../knexfile")[environment];
 const knex = require("knex")(config);
 
 function getBags(testDb) {
-  console.log("hit");
-
   const connection = testDb || knex;
   return connection("bags").select();
   // .where("username", username);
