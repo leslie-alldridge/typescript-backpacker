@@ -12,8 +12,5 @@ export const authReducer = (state: AuthEntity[] = [], action) => {
 };
 
 const handleAuthCompleted = (state: AuthEntity[], payload: AuthEntity[]) => {
-  console.log("hit");
-  console.log(payload);
-
   return payload;
 };
