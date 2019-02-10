@@ -27,14 +27,20 @@ function signIn(req, res, next) {
     })
     .then(user => {
       console.log(user);
+      console.log(user.hash);
 
       return new Promise((resolve, reject) => {
         crypto.compare(req.body.password, user.hash, (err, match) => {
+          console.log(match);
+          console.log(err);
+
           return resolve(match);
         });
       });
     })
     .then(isValid => {
+      console.log(isValid);
+
       return isValid ? next() : invalidCredentials(res);
     })
     .catch(() => {
