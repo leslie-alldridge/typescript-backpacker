@@ -52,8 +52,13 @@ class RegisterForm extends React.Component<Props, State> {
     const { username, password, confirm } = this.state;
     return (
       <div id="wrapperForm2">
-        <form className="form-inline" onSubmit={this.handleClick}>
+        <form
+          className="form-inline"
+          onSubmit={this.handleClick}
+          autoComplete="off"
+        >
           <input
+            autoComplete="off"
             id="input1"
             className="form-control"
             pattern=".{4,}"
@@ -66,7 +71,8 @@ class RegisterForm extends React.Component<Props, State> {
           />
 
           <input
-            id="input1"
+            autoComplete="current-password"
+            id="input12"
             className="form-control"
             pattern=".{8,}"
             required
@@ -79,6 +85,7 @@ class RegisterForm extends React.Component<Props, State> {
           />
 
           <input
+            autoComplete="off"
             id="input1reg"
             className="form-control"
             pattern=".{8,}"
