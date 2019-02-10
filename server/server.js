@@ -27,8 +27,8 @@ function signIn(req, res, next) {
     })
     .then(user => {
       console.log(user);
-      console.log(typeOf(user.hash));
-      console.log(typeOf(req.body.password));
+      console.log(typeof user.hash);
+      console.log(typeof req.body.password);
 
       return new Promise((resolve, reject) => {
         crypto.compare(req.body.password, String(user.hash), (err, match) => {
