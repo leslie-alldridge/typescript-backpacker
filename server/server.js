@@ -16,35 +16,19 @@ server.post("/signin", signIn, auth.issueJwt);
 server.post("/register", register, auth.issueJwt);
 
 function signIn(req, res, next) {
-  console.log(req.body.username);
-
   users
     .getByName(req.body.username)
     .then(user => {
-      console.log(user);
-
       return user || invalidCredentials(res);
     })
     .then(user => {
-      console.log(user);
-      console.log(typeof user.hash);
-      console.log(typeof req.body.password);
-
       return new Promise((resolve, reject) => {
-        console.log(req.body.password);
-        console.log(user.hash);
-
         crypto.compare(req.body.password, String(user.hash), (err, match) => {
-          console.log(match);
-          console.log(err);
-
           return resolve(match);
         });
       });
     })
     .then(isValid => {
-      console.log(isValid);
-
       return isValid ? next() : invalidCredentials(res);
     })
     .catch(() => {
