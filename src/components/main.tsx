@@ -7,7 +7,7 @@ import MainForm from "./mainform";
 import { BagePageContainer } from "./bags/bagpagecontainer";
 import Logout from "./auth/logout";
 import { AuthEntity } from "../model";
-// import Loading from "./Loading";
+import { Loading } from "../common/loading";
 
 interface Props {
   saveBags(user, bag): () => void;
@@ -75,7 +75,7 @@ export default class Main extends React.Component<
           <MainForm handleClick={this.handleClick} />
         )}
         {this.props.authentication["iat"] && <BagePageContainer />}
-        {/* <MainForm handleClick={this.handleClick} /> */}
+        <Loading />
         <FooterText />
       </div>
     );
