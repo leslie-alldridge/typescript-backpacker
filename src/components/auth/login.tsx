@@ -51,14 +51,12 @@ class LoginForm extends React.Component<Props, State> {
     return (
       <div id="wrapperForm">
         <form
-          autoComplete="off"
           className="form-inline"
           onSubmit={e => {
             this.handleClick(e);
           }}
         >
           <input
-            autoComplete="off"
             pattern=".{4,}"
             required
             title="4 characters minimum"
@@ -69,7 +67,6 @@ class LoginForm extends React.Component<Props, State> {
             onChange={this.handleChange}
           />
           <input
-            autoComplete="current-password"
             pattern=".{8,}"
             required
             title="8 characters minimum"
