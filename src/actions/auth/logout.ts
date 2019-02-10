@@ -11,10 +11,10 @@ function requestLogout() {
 
 function receiveLogout() {
   const emptyAuth = {
-    id: 0,
+    id: false,
     username: "",
-    iat: 0,
-    exp: 0
+    iat: false,
+    exp: false
   };
   return {
     type: actionTypes.LOGOUT_SUCCESS,
