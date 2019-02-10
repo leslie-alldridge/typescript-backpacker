@@ -10,6 +10,10 @@ To learn React and Redux in Typescript.
 
 ## Todos
 
+[] error message handling
+[] cannot save empty bag name
+[] clear input and login fields on submit
+
 ## Reflections & Learnings
 
 - I can now create full stack Typescript React applications that include Redux
