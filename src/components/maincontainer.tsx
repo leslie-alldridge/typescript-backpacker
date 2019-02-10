@@ -10,7 +10,7 @@ const mapStateToProps = (state: State, ownProps: any) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  saveBags: bag => dispatch(saveBag(bag)),
+  saveBags: (user, bag) => dispatch(saveBag(user, bag)),
   registerUser: user => dispatch(registerUser(user)),
   loginUser: creds => dispatch(loginUser(creds))
 });

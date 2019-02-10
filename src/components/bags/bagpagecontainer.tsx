@@ -13,11 +13,12 @@ import {
 
 const mapStateToProps = (state: State, ownProps: any) => ({
   bags: state.bag,
-  item: state.item
+  item: state.item,
+  authentication: state.auth
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchBags: () => dispatch(fetchBags()),
+  fetchBags: user => dispatch(fetchBags(user)),
   deleteBags: id => dispatch(deleteBags(id)),
   updateBags: (id, destination, description) =>
     dispatch(updateBag(id, destination, description)),

@@ -10,7 +10,7 @@ import { AuthEntity } from "../model";
 // import Loading from "./Loading";
 
 interface Props {
-  saveBags(bag): () => void;
+  saveBags(user, bag): () => void;
   registerUser(user): () => void;
   loginUser(user): () => void;
   authentication: AuthEntity[];
@@ -42,7 +42,7 @@ export default class Main extends React.Component<
       destination,
       username: "leslie"
     };
-    this.props.saveBags(bag);
+    this.props.saveBags(this.props.authentication["username"], bag);
   }
 
   private registerToggle() {

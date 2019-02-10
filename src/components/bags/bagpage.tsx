@@ -1,10 +1,10 @@
 import * as React from "react";
 import BagList from "./baglist";
 import UpdateBag from "./updatebag";
-import { BagEntity, BagItemEntity } from "../../model";
+import { BagEntity, BagItemEntity, AuthEntity } from "../../model";
 
 interface Props {
-  fetchBags(): void;
+  fetchBags(user): void;
   deleteBags(id): void;
   updateBags(id, description, destination): void;
   showItems(id): void;
@@ -13,6 +13,7 @@ interface Props {
   deleteItem(id, bagid, input): void;
   bags: BagEntity[];
   item: BagItemEntity[];
+  authentication: AuthEntity[];
 }
 
 interface State {
@@ -37,7 +38,7 @@ export default class BagPage extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    this.props.fetchBags();
+    this.props.fetchBags(this.props.authentication["username"]);
   }
 
   addInventory(viewListID) {

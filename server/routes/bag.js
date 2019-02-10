@@ -19,7 +19,9 @@ router.use(express.urlencoded({ extended: true }));
 // );
 
 router.get("/", (req, res) => {
-  bags.getBags().then(data => {
+  console.log(req.query.user);
+
+  bags.getBags(req.query.user).then(data => {
     res.json({
       message: "This is your bag.",
       bag: data
@@ -28,8 +30,10 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  bags.addBags(req.body).then(saved => {
-    bags.getBags().then(data => {
+  console.log(req.body);
+
+  bags.addBags(req.body.user, req.body.bag).then(saved => {
+    bags.getBags(req.body.user).then(data => {
       res.json({
         message: "This is your bag.",
         bag: data

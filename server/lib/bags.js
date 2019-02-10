@@ -2,19 +2,22 @@ const environment = process.env.NODE_ENV || "development";
 const config = require("../../knexfile")[environment];
 const knex = require("knex")(config);
 
-function getBags(testDb) {
+function getBags(username, testDb) {
+  console.log("getting bags for" + username);
+
   const connection = testDb || knex;
-  return connection("bags").select();
-  // .where("username", username);
+  return connection("bags")
+    .select()
+    .where("username", username);
 }
 
-function addBags(bag, testDb) {
+function addBags(user, bag, testDb) {
   const connection = testDb || knex;
   return connection("bags").insert({
     bag: "testbag",
     description: bag.description,
     destination: bag.destination,
-    username: bag.username
+    username: user
   });
 }
 
