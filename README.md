@@ -10,10 +10,6 @@ To learn React and Redux in Typescript.
 
 ## Todos
 
-- [ ] Auth
-- [ ] Deploy
-- [ ] Tidy up any console or dependency errors/warnings
-
 ## Reflections & Learnings
 
 - I can now create full stack Typescript React applications that include Redux
@@ -21,8 +17,6 @@ To learn React and Redux in Typescript.
 - It was nice to read my original backpacker readme saying that I'd like to Typescript it one day, that day is here!
 
 ## Next Action Steps
-
-- Deploy to Heroku
 
 ## Link to original Javascript version
 
