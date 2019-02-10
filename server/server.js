@@ -80,16 +80,6 @@ function invalidCredentials(res) {
   });
 }
 
-function getSecret(req, payload, done) {
-  done(null, "test");
-}
-
-server.use(
-  verifyJwt({
-    secret: getSecret
-  }),
-  auth.handleError
-);
 server.use("/api/v1/bags", bagRoutes);
 server.use("/api/v1/items", itemRoutes);
 
