@@ -16,12 +16,18 @@ server.post("/signin", signIn, auth.issueJwt);
 server.post("/register", register, auth.issueJwt);
 
 function signIn(req, res, next) {
+  console.log(req.body.username);
+
   users
     .getByName(req.body.username)
     .then(user => {
+      console.log(user);
+
       return user || invalidCredentials(res);
     })
     .then(user => {
+      console.log(user);
+
       return new Promise((resolve, reject) => {
         crypto.compare(req.body.password, user.hash, (err, match) => {
           return resolve(match);

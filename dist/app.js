@@ -1703,7 +1703,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*!*****************************************!*\
   !*** ./actions/bagItemActions/index.ts ***!
   \*****************************************/
-/*! exports provided: archiveItem, saveItem, showItems, deleteItem */
+/*! exports provided: archiveItem, deleteItem, saveItem, showItems */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
