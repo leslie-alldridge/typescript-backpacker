@@ -219,7 +219,7 @@ li.ui-state-default:last-child {
 #logoutBtn {
   float: right;
   padding-bottom: 0.2%;
-  padding-top: 0.4%;
+  padding-top: 0.2%;
 }
 
 .jumbotron {
@@ -237,19 +237,16 @@ li.ui-state-default:last-child {
 #input1 {
   margin-right: 0.5%;
   margin-left: 0.5%;
-  margin-bottom: 1%;
 }
 
 #input12 {
   margin-right: 0.5%;
   margin-left: 0.5%;
-  margin-bottom: 1%;
 }
 
 #input1reg {
   margin-right: 0.5%;
   margin-left: 0.5%;
-  margin-bottom: 2%;
 }
 
 #input1btn {
