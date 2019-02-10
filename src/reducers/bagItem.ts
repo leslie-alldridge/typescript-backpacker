@@ -1,5 +1,5 @@
-import { actionTypes } from '../common/constants/actionTypes';
-import { BagItemEntity } from '../model';
+import { actionTypes } from "../common/constants/actionTypes";
+import { BagItemEntity } from "../model";
 
 export const bagItemReducer = (state: BagItemEntity[] = [], action) => {
   switch (action.type) {
@@ -7,10 +7,15 @@ export const bagItemReducer = (state: BagItemEntity[] = [], action) => {
       return handleFetchBagsCompleted(state, action.payload);
     // case actionTypes.SAVE_BAG:
     //   return handleFetchBagsCompleted(state, action.payload)
+    case actionTypes.LOGOUT_SUCCESS:
+      return handleFetchBagsCompleted(state, []);
   }
   return state;
 };
 
-const handleFetchBagsCompleted = (state: BagItemEntity[], payload: BagItemEntity[]) => {
+const handleFetchBagsCompleted = (
+  state: BagItemEntity[],
+  payload: BagItemEntity[]
+) => {
   return payload;
 };

@@ -10,10 +10,17 @@ function requestLogout() {
 }
 
 function receiveLogout() {
+  const emptyAuth = {
+    id: 0,
+    username: "",
+    iat: 0,
+    exp: 0
+  };
   return {
     type: actionTypes.LOGOUT_SUCCESS,
     isFetching: false,
-    isAuthenticated: false
+    isAuthenticated: false,
+    payload: emptyAuth
   };
 }
 
