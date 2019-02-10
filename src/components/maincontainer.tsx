@@ -6,7 +6,7 @@ import Main from "./main";
 
 const mapStateToProps = (state: State, ownProps: any) => ({
   bags: state.bag,
-  auth: state.auth
+  authentication: state.auth
 });
 
 const mapDispatchToProps = dispatch => ({

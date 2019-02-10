@@ -6,13 +6,14 @@ import LoginForm from "./auth/login";
 import MainForm from "./mainform";
 import { BagePageContainer } from "./bags/bagpagecontainer";
 import Logout from "./auth/logout";
+import { AuthEntity } from "../model";
 // import Loading from "./Loading";
 
 interface Props {
   saveBags(bag): () => void;
   registerUser(user): () => void;
   loginUser(user): () => void;
-  auth: [];
+  authentication: AuthEntity[];
   //define interface for props here
   // saveBagToDB:(username, description, destination)=> void;
 
@@ -54,40 +55,26 @@ export default class Main extends React.Component<
     return (
       <div className="container">
         <Header />
-        {!this.state.registerToggle && (
-          <LoginForm
-            loginUser={this.props.loginUser}
-            registerToggle={this.registerToggle}
-          />
+        {this.props.authentication["iat"] && (
+          <Logout user={this.props.authentication["username"]} />
         )}
-        {this.state.registerToggle && (
+        {!this.props.authentication["iat"] && this.state.registerToggle && (
           <RegisterForm
             registerUser={this.props.registerUser}
             registerToggle={this.registerToggle}
           />
         )}
-        {/* {this.props.auth.isAuthenticated && (
-          <Logout user={this.props.auth.user.username} />
-        )} */}
-        {/* {!this.props.auth.isAuthenticated &&
-          this.state.registerToggle && (
-            <RegisterForm registerToggle={this.registerToggle} />
-          )}
-        {!this.props.auth.isAuthenticated &&
-          !this.state.registerToggle && (
-            <LoginForm registerToggle={this.registerToggle} />
-          )}
-        <Loading />
-       
-        {this.state.formPage &&
-          this.props.auth.isAuthenticated && (
-            <MainForm handleClick={this.handleClick} />
-          )}
-        {this.props.auth.isAuthenticated && (
-          <BagPage bagsData={this.props.auth} />
-        )} */}
-        <MainForm handleClick={this.handleClick} />
-        <BagePageContainer />
+        {!this.props.authentication["iat"] && !this.state.registerToggle && (
+          <LoginForm
+            loginUser={this.props.loginUser}
+            registerToggle={this.registerToggle}
+          />
+        )}
+        {this.state.formPage && this.props.authentication["iat"] && (
+          <MainForm handleClick={this.handleClick} />
+        )}
+        {this.props.authentication["iat"] && <BagePageContainer />}
+        {/* <MainForm handleClick={this.handleClick} /> */}
         <FooterText />
       </div>
     );

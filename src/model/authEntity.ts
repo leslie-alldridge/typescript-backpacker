@@ -1,6 +1,6 @@
 export interface AuthEntity {
+  iat: number;
   id: number;
-  description: string;
-  destination: string;
+  exp: number;
   username: string;
 }
