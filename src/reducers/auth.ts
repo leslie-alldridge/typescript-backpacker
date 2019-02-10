@@ -3,17 +3,17 @@ import { AuthEntity } from "../model";
 
 export const authReducer = (state: AuthEntity[] = [], action) => {
   switch (action.type) {
-    case actionTypes.FETCH_BAGS_COMPLETED:
-      return handleFetchBagsCompleted(state, action.payload);
-    case actionTypes.SAVE_BAG:
-      return handleFetchBagsCompleted(state, action.payload);
+    case actionTypes.LOGIN_SUCCESS:
+      return handleAuthCompleted(state, action.payload);
+    // case actionTypes.SAVE_BAG:
+    //   return handleAuthCompleted(state, action.payload);
   }
   return state;
 };
 
-const handleFetchBagsCompleted = (
-  state: AuthEntity[],
-  payload: AuthEntity[]
-) => {
+const handleAuthCompleted = (state: AuthEntity[], payload: AuthEntity[]) => {
+  console.log("hit");
+  console.log(payload);
+
   return payload;
 };

@@ -5,12 +5,14 @@ import RegisterForm from "./auth/register";
 import LoginForm from "./auth/login";
 import MainForm from "./mainform";
 import { BagePageContainer } from "./bags/bagpagecontainer";
-// import Logout from "./Logout";
+import Logout from "./auth/logout";
 // import Loading from "./Loading";
 
 interface Props {
   saveBags(bag): () => void;
   registerUser(user): () => void;
+  loginUser(user): () => void;
+  auth: [];
   //define interface for props here
   // saveBagToDB:(username, description, destination)=> void;
 
@@ -53,7 +55,10 @@ export default class Main extends React.Component<
       <div className="container">
         <Header />
         {!this.state.registerToggle && (
-          <LoginForm registerToggle={this.registerToggle} />
+          <LoginForm
+            loginUser={this.props.loginUser}
+            registerToggle={this.registerToggle}
+          />
         )}
         {this.state.registerToggle && (
           <RegisterForm
@@ -61,6 +66,9 @@ export default class Main extends React.Component<
             registerToggle={this.registerToggle}
           />
         )}
+        {/* {this.props.auth.isAuthenticated && (
+          <Logout user={this.props.auth.user.username} />
+        )} */}
         {/* {!this.props.auth.isAuthenticated &&
           this.state.registerToggle && (
             <RegisterForm registerToggle={this.registerToggle} />
@@ -70,9 +78,7 @@ export default class Main extends React.Component<
             <LoginForm registerToggle={this.registerToggle} />
           )}
         <Loading />
-        {this.props.auth.isAuthenticated && (
-          <Logout user={this.props.auth.user.username} />
-        )}
+       
         {this.state.formPage &&
           this.props.auth.isAuthenticated && (
             <MainForm handleClick={this.handleClick} />
