@@ -5,13 +5,14 @@ import { updateBag } from "../../actions/bagActions/updateBags";
 import UpdateBag from "./updatebag";
 
 const mapStateToProps = (state: State, ownProps: any) => ({
-  bags: state.bag
+  bags: state.bag,
+  authentication: state.auth
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchBags: user => dispatch(fetchBags(user)),
-  updateBags: (id, destination, description) =>
-    dispatch(updateBag(id, destination, description))
+  updateBags: (id, destination, description, username) =>
+    dispatch(updateBag(id, destination, description, username))
 });
 
 export const BagePageContainer = connect(

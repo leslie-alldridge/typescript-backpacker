@@ -6,7 +6,7 @@ import { BagEntity, BagItemEntity, AuthEntity } from "../../model";
 interface Props {
   fetchBags(user): void;
   deleteBags(id, user): void;
-  updateBags(id, description, destination): void;
+  updateBags(id, description, destination, username): void;
   showItems(id): void;
   checkItem(id, item): void;
   saveItem(id, item): void;
@@ -118,6 +118,7 @@ export default class BagPage extends React.Component<Props, State> {
                 )}
                 {this.state.viewBagUpdate == bag.id && (
                   <UpdateBag
+                    authentication={this.props.authentication}
                     updateBags={this.props.updateBags}
                     key={bag.id}
                     id={bag.id}
