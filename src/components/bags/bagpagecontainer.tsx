@@ -19,9 +19,9 @@ const mapStateToProps = (state: State, ownProps: any) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchBags: user => dispatch(fetchBags(user)),
-  deleteBags: id => dispatch(deleteBags(id)),
-  updateBags: (id, destination, description) =>
-    dispatch(updateBag(id, destination, description)),
+  deleteBags: (id, user) => dispatch(deleteBags(id, user)),
+  updateBags: (id, destination, description, username) =>
+    dispatch(updateBag(id, destination, description, username)),
   showItems: id => dispatch(showItems(id)),
   checkItem: (id, item) => dispatch(archiveItem(id, item)),
   saveItem: (id, item) => dispatch(saveItem(id, item)),

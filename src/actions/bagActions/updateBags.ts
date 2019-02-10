@@ -2,10 +2,16 @@ import { actionTypes } from "../../common/constants/actionTypes";
 import { BagEntity } from "../../model";
 import axios from "axios";
 
-export const updateBag = (id, description, destination) => dispatch => {
+export const updateBag = (
+  id,
+  description,
+  destination,
+  username
+) => dispatch => {
   const details = {
     description,
-    destination
+    destination,
+    username
   };
   axios.post(`/api/v1/bags/update/${id}`, details).then((data: any) => {
     dispatch(saveBagCompleted(data.data.bag));

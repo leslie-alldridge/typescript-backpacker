@@ -5,7 +5,7 @@ import { BagEntity, BagItemEntity, AuthEntity } from "../../model";
 
 interface Props {
   fetchBags(user): void;
-  deleteBags(id): void;
+  deleteBags(id, user): void;
   updateBags(id, description, destination): void;
   showItems(id): void;
   checkItem(id, item): void;
@@ -57,7 +57,7 @@ export default class BagPage extends React.Component<Props, State> {
   }
 
   deleteItem(id) {
-    this.props.deleteBags(id);
+    this.props.deleteBags(id, this.props.authentication["username"]);
   }
 
   render() {

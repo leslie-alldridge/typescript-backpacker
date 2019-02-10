@@ -3,8 +3,6 @@ const config = require("../../knexfile")[environment];
 const knex = require("knex")(config);
 
 function getBags(username, testDb) {
-  console.log("getting bags for" + username);
-
   const connection = testDb || knex;
   return connection("bags")
     .select()
@@ -14,21 +12,21 @@ function getBags(username, testDb) {
 function addBags(user, bag, testDb) {
   const connection = testDb || knex;
   return connection("bags").insert({
-    bag: "testbag",
     description: bag.description,
     destination: bag.destination,
     username: user
   });
 }
 
-function deleteBag(id, testDb) {
+function deleteBag(id, username, testDb) {
   const connection = testDb || knex;
   return connection("bags")
     .where("id", id)
     .del()
     .then(data => {
-      return connection("bags").select();
-      // .where("username", username);
+      return connection("bags")
+        .select()
+        .where("username", username);
     });
 }
 
@@ -41,8 +39,9 @@ function updateBag(id, destination, description, username, testDb) {
       description: description
     })
     .then(data => {
-      return connection("bags").select();
-      // .where("username", username);
+      return connection("bags")
+        .select()
+        .where("username", username);
     });
 }
 

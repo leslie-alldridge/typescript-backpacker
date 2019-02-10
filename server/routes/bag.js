@@ -19,8 +19,6 @@ router.use(express.urlencoded({ extended: true }));
 // );
 
 router.get("/", (req, res) => {
-  console.log(req.query.user);
-
   bags.getBags(req.query.user).then(data => {
     res.json({
       message: "This is your bag.",
@@ -30,8 +28,6 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  console.log(req.body);
-
   bags.addBags(req.body.user, req.body.bag).then(saved => {
     bags.getBags(req.body.user).then(data => {
       res.json({
@@ -43,8 +39,7 @@ router.post("/", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  const { id } = req.params;
-  bags.deleteBag(id).then(delBag => {
+  bags.deleteBag(req.params.id, req.query.username).then(delBag => {
     res.json({
       message: "deleted bag",
       bag: delBag
@@ -58,7 +53,7 @@ router.post("/update/:id", (req, res) => {
       req.params.id,
       req.body.destination,
       req.body.description,
-      "leslie"
+      req.body.username
     )
     .then(updBag => {
       res.json({
