@@ -14,9 +14,7 @@ interface Props {
   registerUser(user): () => void;
   loginUser(user): () => void;
   authentication: AuthEntity[];
-  //define interface for props here
-  // saveBagToDB:(username, description, destination)=> void;
-
+  load: [];
   bags: [];
 }
 
@@ -52,6 +50,8 @@ export default class Main extends React.Component<
   }
 
   render() {
+    console.log(this.props);
+
     return (
       <div className="container">
         <Header />
@@ -59,6 +59,7 @@ export default class Main extends React.Component<
           this.props.authentication["iat"] != 0 && (
             <Logout user={this.props.authentication["username"]} />
           )}
+        <Loading />
         {!this.props.authentication["iat"] && this.state.registerToggle && (
           <RegisterForm
             registerUser={this.props.registerUser}
@@ -75,7 +76,6 @@ export default class Main extends React.Component<
           <MainForm handleClick={this.handleClick} />
         )}
         {this.props.authentication["iat"] && <BagePageContainer />}
-        <Loading />
         <FooterText />
       </div>
     );

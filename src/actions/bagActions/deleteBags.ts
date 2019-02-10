@@ -2,7 +2,16 @@ import { actionTypes } from "../../common/constants/actionTypes";
 import { BagEntity } from "../../model";
 import axios from "axios";
 
+function requestBags() {
+  return {
+    type: actionTypes.FETCH_BAG,
+    isFetching: true,
+    isAuthenticated: true
+  };
+}
+
 export const deleteBags = (id, user) => dispatch => {
+  dispatch(requestBags());
   axios
     .delete(`/api/v1/bags/${id}`, {
       params: {
@@ -16,5 +25,6 @@ export const deleteBags = (id, user) => dispatch => {
 
 const fetchBagsCompleted = (bag: BagEntity) => ({
   type: actionTypes.FETCH_BAGS_COMPLETED,
+  isFetching: false,
   payload: bag
 });

@@ -8,7 +8,7 @@ export interface State {
   bag: BagEntity[];
   item: BagItemEntity[];
   auth: AuthEntity[];
-  load: [];
+  load: boolean;
 }
 
 export const state = combineReducers<State>({
