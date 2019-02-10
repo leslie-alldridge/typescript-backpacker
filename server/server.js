@@ -27,10 +27,11 @@ function signIn(req, res, next) {
     })
     .then(user => {
       console.log(user);
-      console.log(user.hash);
+      console.log(typeOf(user.hash));
+      console.log(typeOf(req.body.password));
 
       return new Promise((resolve, reject) => {
-        crypto.compare(req.body.password, user.hash, (err, match) => {
+        crypto.compare(req.body.password, String(user.hash), (err, match) => {
           console.log(match);
           console.log(err);
 
