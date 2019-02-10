@@ -7,10 +7,10 @@ interface Props {
   fetchBags(user): void;
   deleteBags(id, user): void;
   updateBags(id, description, destination, username): void;
-  showItems(id): void;
-  checkItem(id, item): void;
-  saveItem(id, item): void;
-  deleteItem(id, bagid, input): void;
+  showItems(id, user): void;
+  checkItem(id, item, user): void;
+  saveItem(id, item, user): void;
+  deleteItem(id, bagid, input, user): void;
   bags: BagEntity[];
   item: BagItemEntity[];
   authentication: AuthEntity[];
@@ -46,7 +46,7 @@ export default class BagPage extends React.Component<Props, State> {
       viewListID: prevState.viewListID == viewListID ? null : viewListID,
       viewBagUpdate: null
     }));
-    this.props.showItems(viewListID);
+    this.props.showItems(viewListID, this.props.authentication["username"]);
   }
 
   updateBagToggle(id) {
@@ -105,10 +105,10 @@ export default class BagPage extends React.Component<Props, State> {
                 </button>
                 {this.state.viewListID === bag.id && (
                   <BagList
+                    authentication={this.props.authentication}
                     deleteItem={this.props.deleteItem}
                     saveItem={this.props.saveItem}
                     checkItem={this.props.checkItem}
-                    showItems={this.props.showItems}
                     item={this.props.item}
                     key={bag.id}
                     id={bag.id}

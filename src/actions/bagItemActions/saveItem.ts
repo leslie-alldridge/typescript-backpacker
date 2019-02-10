@@ -10,9 +10,9 @@ function requestItems() {
   };
 }
 
-export const saveItem = (id, input) => dispatch => {
+export const saveItem = (id, input, user) => dispatch => {
   dispatch(requestItems());
-  axios.post(`/api/v1/items/${id}`, { input }).then((data: any) => {
+  axios.post(`/api/v1/items/${id}`, { input, user }).then((data: any) => {
     dispatch(fetchItemsCompleted(data.data.bagItems));
   });
 };

@@ -37,8 +37,7 @@ export default class Main extends React.Component<
     e.preventDefault();
     const bag = {
       description,
-      destination,
-      username: "leslie"
+      destination
     };
     this.props.saveBags(this.props.authentication["username"], bag);
   }
@@ -50,8 +49,6 @@ export default class Main extends React.Component<
   }
 
   render() {
-    console.log(this.props);
-
     return (
       <div className="container">
         <Header />

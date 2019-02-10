@@ -19,7 +19,7 @@ function archiveBagItem(username, id, item, testDb) {
     .then(data => {
       return connection("bagitems")
         .select()
-        .where({ bagid: id });
+        .where({ username: username, bagid: id });
     });
 }
 
@@ -47,7 +47,7 @@ function deleteItem(username, bagid, item, testDb) {
     .then(data => {
       return connection("bagitems")
         .select()
-        .where({ bagid: bagid });
+        .where({ username: username, bagid: bagid });
     });
 }
 

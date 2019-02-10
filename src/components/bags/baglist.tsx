@@ -1,16 +1,16 @@
 import * as React from "react";
-import { BagItemEntity } from "../../model";
+import { BagItemEntity, AuthEntity } from "../../model";
 
 interface Props {
   key: number;
   id: number;
   description: string;
   destination: string;
-  showItems(id): void;
-  checkItem(id, item): void;
-  saveItem(id, item): void;
-  deleteItem(id, bagid, input): void;
+  checkItem(id, item, user): void;
+  saveItem(id, item, user): void;
+  deleteItem(id, bagid, input, user): void;
   item: BagItemEntity[];
+  authentication: AuthEntity[];
 }
 
 interface State {
@@ -30,7 +30,12 @@ class BagList extends React.Component<Props, State> {
   }
 
   delete(id, bagid, input) {
-    this.props.deleteItem(id, bagid, input);
+    this.props.deleteItem(
+      id,
+      bagid,
+      input,
+      this.props.authentication["username"]
+    );
   }
 
   formChange(e) {
@@ -40,12 +45,12 @@ class BagList extends React.Component<Props, State> {
   }
 
   checkItem(id, item) {
-    this.props.checkItem(id, item);
+    this.props.checkItem(id, item, this.props.authentication["username"]);
   }
 
   saveItem(e, id, input) {
     e.preventDefault();
-    this.props.saveItem(id, input);
+    this.props.saveItem(id, input, this.props.authentication["username"]);
     this.setState({
       formInput: ""
     });

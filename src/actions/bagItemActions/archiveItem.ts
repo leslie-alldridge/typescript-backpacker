@@ -10,10 +10,10 @@ function requestItems() {
   };
 }
 
-export const archiveItem = (id, item) => dispatch => {
+export const archiveItem = (id, item, user) => dispatch => {
   dispatch(requestItems());
   axios
-    .post(`/api/v1/items/archive/${id}`, { item: item })
+    .post(`/api/v1/items/archive/${id}`, { item, user })
     .then((data: any) => {
       dispatch(fetchItemsCompleted(data.data.bagItems));
     });

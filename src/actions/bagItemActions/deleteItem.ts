@@ -10,11 +10,12 @@ function requestItems() {
   };
 }
 
-export const deleteItem = (id, bagid, item) => dispatch => {
+export const deleteItem = (id, bagid, item, user) => dispatch => {
   const data = {
     id,
     bagid,
-    item
+    item,
+    user
   };
   dispatch(requestItems());
   axios.delete(`/api/v1/items/${id}`, { data }).then((data: any) => {

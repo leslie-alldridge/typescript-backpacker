@@ -23,9 +23,10 @@ const mapDispatchToProps = dispatch => ({
   updateBags: (id, destination, description, username) =>
     dispatch(updateBag(id, destination, description, username)),
   showItems: id => dispatch(showItems(id)),
-  checkItem: (id, item) => dispatch(archiveItem(id, item)),
-  saveItem: (id, item) => dispatch(saveItem(id, item)),
-  deleteItem: (id, bagid, input) => dispatch(deleteItem(id, bagid, input))
+  checkItem: (id, item, user) => dispatch(archiveItem(id, item, user)),
+  saveItem: (id, item, user) => dispatch(saveItem(id, item, user)),
+  deleteItem: (id, bagid, input, user) =>
+    dispatch(deleteItem(id, bagid, input, user))
 });
 
 export const BagePageContainer = connect(
