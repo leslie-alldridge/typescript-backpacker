@@ -31,6 +31,9 @@ function signIn(req, res, next) {
       console.log(typeof req.body.password);
 
       return new Promise((resolve, reject) => {
+        console.log(req.body.password);
+        console.log(user.hash);
+
         crypto.compare(req.body.password, String(user.hash), (err, match) => {
           console.log(match);
           console.log(err);
