@@ -15,7 +15,7 @@ const initialState = [
 export const authReducer = (state: AuthEntity[] = initialState, action) => {
   switch (action.type) {
     case actionTypes.LOGIN_SUCCESS:
-      return handleAuthCompleted(initialState, action.payload);
+      return handleAuthCompleted(state, action.payload);
     case actionTypes.LOGOUT_SUCCESS:
       return handleAuthCompleted(initialState, action.payload);
     case actionTypes.LOGIN_FAILURE:
@@ -29,3 +29,5 @@ export const authReducer = (state: AuthEntity[] = initialState, action) => {
 const handleAuthCompleted = (state: AuthEntity[], payload: AuthEntity[]) => {
   return payload;
 };
+
+

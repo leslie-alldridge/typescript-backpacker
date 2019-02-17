@@ -28,7 +28,8 @@ export function receiveLogin(user) {
     type: actionTypes.LOGIN_SUCCESS,
     isFetching: false,
     isAuthenticated: true,
-    payload: initialState
+    payload: [{isFetching: false,
+      isAuthenticated: true, user}]
   };
 }
 
