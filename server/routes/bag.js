@@ -7,16 +7,16 @@ const router = express.Router();
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
-// function getSecret(req, payload, done) {
-//   done(null, process.env.JWT_SECRET);
-// }
+function getSecret(req, payload, done) {
+  done(null, process.env.JWT_SECRET);
+}
 
-// router.use(
-//   verifyJwt({
-//     secret: getSecret
-//   }),
-//   auth.handleError
-// );
+router.use(
+  verifyJwt({
+    secret: getSecret
+  }),
+  auth.handleError
+);
 
 router.get("/", (req, res) => {
   bags.getBags(req.query.user).then(data => {

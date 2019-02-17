@@ -5,7 +5,6 @@ const crypto = require("./lib/crypto");
 const users = require("./lib/users");
 const bagRoutes = require("./routes/bag");
 const itemRoutes = require("./routes/items");
-const verifyJwt = require("express-jwt");
 
 const server = express();
 server.use(express.json());

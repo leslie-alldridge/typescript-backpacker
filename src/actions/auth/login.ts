@@ -1,5 +1,10 @@
 import { saveUserToken } from "../../common/utils/auth";
+
 import axios from "axios";
+import { get } from "../../common/utils/localstorage";
+const token = get("token");
+axios.defaults.headers.common = { Authorization: `bearer ${token}` };
+
 import { actionTypes } from "../../common/constants/actionTypes";
 
 function requestLogin() {

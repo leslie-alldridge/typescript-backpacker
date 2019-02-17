@@ -1,6 +1,6 @@
 export interface AuthEntity {
-  iat: number;
-  id: number;
-  exp: number;
-  username: string;
+  isFetching: boolean;
+  isAuthenticated: () => void;
+  user: () => void;
+  errorMessage: string;
 }
