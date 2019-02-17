@@ -38,6 +38,8 @@ export default class BagPage extends React.Component<Props, State> {
   }
 
   componentDidMount() {
+    console.log(this.props.authentication[0].user["username"]);
+
     this.props.fetchBags(this.props.authentication[0].user["username"]);
   }
 

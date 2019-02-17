@@ -15,7 +15,7 @@ const initialState = [
 export const authReducer = (state: AuthEntity[] = initialState, action) => {
   switch (action.type) {
     case actionTypes.LOGIN_SUCCESS:
-      return handleAuthCompleted(state, action.payload);
+      return handleAuthCompleted(initialState, action.payload);
     case actionTypes.LOGOUT_SUCCESS:
       return handleAuthCompleted(initialState, action.payload);
     case actionTypes.LOGIN_FAILURE:

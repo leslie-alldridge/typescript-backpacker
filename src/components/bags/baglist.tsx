@@ -54,6 +54,8 @@ class BagList extends React.Component<Props, State> {
 
   saveItem(e, id, input) {
     e.preventDefault();
+    console.log(this.props.authentication[0].user["username"]);
+
     this.props.saveItem(
       id,
       input,

@@ -52,6 +52,7 @@ class RegisterForm extends React.Component<Props, State> {
     const { username, password, confirm } = this.state;
     return (
       <div id="wrapperForm2">
+        {this.state.err && <p>Passwords didn't match</p>}
         <form
           className="form-inline"
           onSubmit={this.handleClick}

@@ -44,7 +44,7 @@ class UpdateBag extends React.Component<Props, State> {
       id,
       destination,
       description,
-      this.props.authentication["username"]
+      this.props.authentication[0].user["username"]
     );
     this.setState({
       updateInput: "",

@@ -1,12 +1,12 @@
 import * as React from "react";
 
 interface Props {
-    handleClick: (e:any, description:string, destination:string) => void;
+  handleClick: (e: any, description: string, destination: string) => void;
 }
 
 interface State {
-    description: string;
-    destination: string;
+  description: string;
+  destination: string;
 }
 
 class MainForm extends React.Component<Props, State> {
@@ -18,17 +18,6 @@ class MainForm extends React.Component<Props, State> {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleDescChange = this.handleDescChange.bind(this);
-  }
-
-  componentDidMount() {
-    // $("#btnSubmit").click(event => {
-    //   const form = $("#myForm");
-    //   if (form[0].checkValidity() === false) {
-    //     event.preventDefault();
-    //     event.stopPropagation();
-    //   }
-    //   form.addClass("was-validated");
-    // });
   }
 
   handleDescChange(e) {
@@ -56,13 +45,18 @@ class MainForm extends React.Component<Props, State> {
         className="col-xl-12"
         id="mainForm"
       >
-        <form  onSubmit={e =>
-                this.props.handleClick(
-                  e,
-                  this.state.description,
-                  this.state.destination
-                )
-              } name="addBagForm" noValidate={false} id="myForm">
+        <form
+          onSubmit={e =>
+            this.props.handleClick(
+              e,
+              this.state.description,
+              this.state.destination
+            )
+          }
+          name="addBagForm"
+          noValidate={false}
+          id="myForm"
+        >
           <div className="col-xl-12" id="formBody">
             <div className="form-group">
               <label id="formLabel">Enter Bag Description</label>
@@ -95,12 +89,7 @@ class MainForm extends React.Component<Props, State> {
                 Sorry, you missed this one.
               </div>
             </div>
-            <button
-              type="submit"
-              id="btnSubmit"
-             
-              className="btn btn-primary"
-            >
+            <button type="submit" id="btnSubmit" className="btn btn-primary">
               Save Bag
             </button>
           </div>

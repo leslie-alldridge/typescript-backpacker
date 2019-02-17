@@ -39,7 +39,9 @@ export default class Main extends React.Component<
       description,
       destination
     };
-    this.props.saveBags(this.props.authentication[0].user, bag);
+    console.log(this.props.authentication[0].user);
+
+    this.props.saveBags(this.props.authentication[0].user["username"], bag);
   }
 
   private registerToggle() {
