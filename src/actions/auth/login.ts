@@ -24,8 +24,6 @@ const initialState = [
   }
 ];
 export function receiveLogin(user) {
-  console.log(user);
-
   return {
     type: actionTypes.LOGIN_SUCCESS,
     isFetching: false,
@@ -62,8 +60,6 @@ export function loginUser(creds) {
           return Promise.reject(response.data.message);
         } else {
           const userInfo = saveUserToken(response.data.token);
-          console.log(userInfo);
-
           dispatch(receiveLogin(userInfo));
         }
       })

@@ -13,8 +13,6 @@ export const loadingReducer = (state: false = false, action) => {
     case actionTypes.FETCH_ITEMS_COMPLETED:
     case actionTypes.SAVE_BAG:
     case actionTypes.LOGOUT_SUCCESS:
-      console.log(action.isFetching);
-
       return handleAuthCompleted(state, action.isFetching);
   }
   return state;

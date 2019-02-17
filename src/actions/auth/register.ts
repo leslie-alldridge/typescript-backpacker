@@ -27,8 +27,6 @@ export function registerUser(creds) {
     return axios
       .post("/register", creds)
       .then(response => {
-        console.log(response);
-
         if (!response) {
           dispatch(registerError("Invalid Credentials"));
           return Promise.reject(response.data);
@@ -38,8 +36,6 @@ export function registerUser(creds) {
         }
       })
       .catch(err => {
-        console.log(err);
-
         dispatch(registerError(err));
       });
   };

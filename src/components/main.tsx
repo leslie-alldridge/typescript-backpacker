@@ -39,8 +39,6 @@ export default class Main extends React.Component<
       description,
       destination
     };
-    console.log(this.props.authentication[0].user);
-
     this.props.saveBags(this.props.authentication[0].user["username"], bag);
   }
 

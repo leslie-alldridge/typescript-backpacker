@@ -42,14 +42,11 @@ function register(req, res, next) {
     .exists(req.body.username)
     .then(exists => {
       if (exists) {
-        console.log(exists);
         return res.status(400).send({ errorType: "USER_EXISTS" });
       }
       users.create(req.body.username, req.body.password).then(() => next());
     })
     .catch(err => {
-      console.log(err);
-
       return res.status(400).send({ message: err.code });
     });
 }
