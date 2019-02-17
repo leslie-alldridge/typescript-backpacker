@@ -1,6 +1,10 @@
 import { actionTypes } from "../../common/constants/actionTypes";
 import { BagEntity } from "../../model";
+
 import axios from "axios";
+import { get } from "../../common/utils/localstorage";
+const token = get("token");
+axios.defaults.headers.common = { Authorization: `bearer ${token}` };
 
 function requestBags() {
   return {
