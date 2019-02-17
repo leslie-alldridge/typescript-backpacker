@@ -17,7 +17,7 @@ export function registerError(message) {
     type: actionTypes.REGISTER_FAILURE,
     isFetching: false,
     isAuthenticated: false,
-    message: message.response.data.message
+    payload: message.response.data.errorType
   };
 }
 
@@ -27,6 +27,8 @@ export function registerUser(creds) {
     return axios
       .post("/register", creds)
       .then(response => {
+        console.log(response);
+
         if (!response) {
           dispatch(registerError("Invalid Credentials"));
           return Promise.reject(response.data);
@@ -36,6 +38,8 @@ export function registerUser(creds) {
         }
       })
       .catch(err => {
+        console.log(err);
+
         dispatch(registerError(err));
       });
   };

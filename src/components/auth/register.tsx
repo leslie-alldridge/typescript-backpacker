@@ -3,6 +3,7 @@ import * as React from "react";
 interface Props {
   registerToggle(): void;
   registerUser: (creds) => void;
+  auth: {};
 }
 
 interface State {
@@ -53,6 +54,7 @@ class RegisterForm extends React.Component<Props, State> {
     return (
       <div id="wrapperForm2">
         {this.state.err && <p>Passwords didn't match</p>}
+        {this.props.auth == "USER_EXISTS" && <p>User already exists</p>}
         <form
           className="form-inline"
           onSubmit={this.handleClick}

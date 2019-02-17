@@ -11,7 +11,7 @@ function requestLogout() {
 const initialState = [
   {
     isFetching: false,
-    isAuthenticated: null,
+    isAuthenticated: false,
     user: null,
     errorMessage: ""
   }

@@ -20,6 +20,8 @@ export const authReducer = (state: AuthEntity[] = initialState, action) => {
       return handleAuthCompleted(initialState, action.payload);
     case actionTypes.LOGIN_FAILURE:
       return handleAuthCompleted(state, action.payload);
+    case actionTypes.REGISTER_FAILURE:
+      return handleAuthCompleted(state, action.payload);
   }
   return state;
 };

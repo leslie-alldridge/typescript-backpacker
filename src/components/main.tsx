@@ -61,6 +61,7 @@ export default class Main extends React.Component<
         {!this.props.authentication[0].isAuthenticated &&
           this.state.registerToggle && (
             <RegisterForm
+              auth={this.props.authentication}
               registerUser={this.props.registerUser}
               registerToggle={this.registerToggle}
             />

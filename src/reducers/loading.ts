@@ -8,7 +8,7 @@ export const loadingReducer = (state: false = false, action) => {
     case actionTypes.REGISTER_REQUEST:
     case actionTypes.LOGIN_REQUEST:
     case actionTypes.LOGIN_SUCCESS:
-
+    case actionTypes.REGISTER_FAILURE:
     case actionTypes.FETCH_BAGS_COMPLETED:
     case actionTypes.FETCH_ITEMS_COMPLETED:
     case actionTypes.SAVE_BAG:

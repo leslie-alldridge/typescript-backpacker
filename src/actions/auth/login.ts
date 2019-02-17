@@ -1,4 +1,5 @@
 import { saveUserToken } from "../../common/utils/auth";
+import { isAuthenticated, getUserTokenInfo } from "../../common/utils/auth";
 
 import axios from "axios";
 import { get } from "../../common/utils/localstorage";
@@ -14,17 +15,26 @@ function requestLogin() {
     isAuthenticated: false
   };
 }
-
+const initialState = [
+  {
+    isFetching: false,
+    isAuthenticated: isAuthenticated(),
+    user: getUserTokenInfo(),
+    errorMessage: ""
+  }
+];
 export function receiveLogin(user) {
+  console.log(user);
+
   return {
     type: actionTypes.LOGIN_SUCCESS,
     isFetching: false,
     isAuthenticated: true,
-    payload: user
+    payload: initialState
   };
 }
 
-export function receiveBag(bag, user) {
+export function receiveBag(bag) {
   return {
     type: actionTypes.FETCH_BAGS_COMPLETED,
     isFetching: false,
@@ -52,6 +62,8 @@ export function loginUser(creds) {
           return Promise.reject(response.data.message);
         } else {
           const userInfo = saveUserToken(response.data.token);
+          console.log(userInfo);
+
           dispatch(receiveLogin(userInfo));
         }
       })
