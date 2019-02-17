@@ -23,6 +23,8 @@ To learn React and Redux in Typescript.
 
 ## Next Action Steps
 
+Complete todos
+
 ## Link to original Javascript version
 
 https://github.com/leslie-alldridge/backpacker-redux (created during my time at EDA)
