@@ -52,10 +52,9 @@ export default class Main extends React.Component<
     return (
       <div className="container">
         <Header />
-        {this.props.authentication["iat"] &&
-          this.props.authentication["iat"] != 0 && (
-            <Logout user={this.props.authentication["username"]} />
-          )}
+        {this.props.authentication[0].isAuthenticated && (
+          <Logout user={this.props.authentication[0].user} />
+        )}
         <Loading />
         {!this.props.authentication["iat"] && this.state.registerToggle && (
           <RegisterForm

@@ -9,7 +9,7 @@ const Logout = props => {
       <p id="welcome">
         Currently logged in as{" "}
         <span id="userlgdin">
-          <b>{props.user}</b>
+          <b>{props.user.username}</b>
         </span>
       </p>
       <button
