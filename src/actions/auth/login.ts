@@ -37,7 +37,7 @@ function loginError(message) {
     type: actionTypes.LOGIN_FAILURE,
     isFetching: false,
     isAuthenticated: false,
-    message
+    payload: message.response.data.errorType
   };
 }
 
@@ -55,6 +55,6 @@ export function loginUser(creds) {
           dispatch(receiveLogin(userInfo));
         }
       })
-      .catch(err => console.log(err));
+      .catch(err => dispatch(loginError(err)));
   };
 }

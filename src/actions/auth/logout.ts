@@ -8,19 +8,20 @@ function requestLogout() {
     isAuthenticated: true
   };
 }
-
+const initialState = [
+  {
+    isFetching: false,
+    isAuthenticated: null,
+    user: null,
+    errorMessage: ""
+  }
+];
 function receiveLogout() {
-  const emptyAuth = {
-    id: false,
-    username: "",
-    iat: false,
-    exp: false
-  };
   return {
     type: actionTypes.LOGOUT_SUCCESS,
     isFetching: false,
     isAuthenticated: false,
-    payload: emptyAuth
+    payload: initialState
   };
 }
 

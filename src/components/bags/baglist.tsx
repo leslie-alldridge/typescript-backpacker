@@ -34,7 +34,7 @@ class BagList extends React.Component<Props, State> {
       id,
       bagid,
       input,
-      this.props.authentication["username"]
+      this.props.authentication[0].user["username"]
     );
   }
 
@@ -45,12 +45,20 @@ class BagList extends React.Component<Props, State> {
   }
 
   checkItem(id, item) {
-    this.props.checkItem(id, item, this.props.authentication["username"]);
+    this.props.checkItem(
+      id,
+      item,
+      this.props.authentication[0].user["username"]
+    );
   }
 
   saveItem(e, id, input) {
     e.preventDefault();
-    this.props.saveItem(id, input, this.props.authentication["username"]);
+    this.props.saveItem(
+      id,
+      input,
+      this.props.authentication[0].user["username"]
+    );
     this.setState({
       formInput: ""
     });

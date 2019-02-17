@@ -39,7 +39,7 @@ export default class Main extends React.Component<
       description,
       destination
     };
-    this.props.saveBags(this.props.authentication["username"], bag);
+    this.props.saveBags(this.props.authentication[0].user, bag);
   }
 
   private registerToggle() {
@@ -56,22 +56,26 @@ export default class Main extends React.Component<
           <Logout user={this.props.authentication[0].user} />
         )}
         <Loading />
-        {!this.props.authentication["iat"] && this.state.registerToggle && (
-          <RegisterForm
-            registerUser={this.props.registerUser}
-            registerToggle={this.registerToggle}
-          />
-        )}
-        {!this.props.authentication["iat"] && !this.state.registerToggle && (
-          <LoginForm
-            loginUser={this.props.loginUser}
-            registerToggle={this.registerToggle}
-          />
-        )}
-        {this.state.formPage && this.props.authentication["iat"] && (
-          <MainForm handleClick={this.handleClick} />
-        )}
-        {this.props.authentication["iat"] && <BagePageContainer />}
+        {!this.props.authentication[0].isAuthenticated &&
+          this.state.registerToggle && (
+            <RegisterForm
+              registerUser={this.props.registerUser}
+              registerToggle={this.registerToggle}
+            />
+          )}
+        {!this.props.authentication[0].isAuthenticated &&
+          !this.state.registerToggle && (
+            <LoginForm
+              auth={this.props.authentication}
+              loginUser={this.props.loginUser}
+              registerToggle={this.registerToggle}
+            />
+          )}
+        {this.state.formPage &&
+          this.props.authentication[0].isAuthenticated && (
+            <MainForm handleClick={this.handleClick} />
+          )}
+        {this.props.authentication[0].isAuthenticated && <BagePageContainer />}
         <FooterText />
       </div>
     );

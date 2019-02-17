@@ -3,6 +3,7 @@ import * as React from "react";
 interface Props {
   registerToggle: () => void;
   loginUser(creds): () => void;
+  auth: {};
 }
 
 interface State {
@@ -50,6 +51,9 @@ class LoginForm extends React.Component<Props, State> {
   render() {
     return (
       <div id="wrapperForm">
+        {this.props.auth == "INVALID_CREDENTIALS" && (
+          <h3>Invalid Credentials</h3>
+        )}
         <form
           className="form-inline"
           onSubmit={e => {

@@ -1,11 +1,11 @@
 import { actionTypes } from "../../common/constants/actionTypes";
 import { BagEntity } from "../../model";
+
 import axios from "axios";
 import { get } from "../../common/utils/localstorage";
 const token = get("token");
-console.log(token);
-
 axios.defaults.headers.common = { Authorization: `bearer ${token}` };
+
 function requestBags() {
   return {
     type: actionTypes.FETCH_BAG,

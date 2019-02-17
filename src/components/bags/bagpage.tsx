@@ -38,7 +38,7 @@ export default class BagPage extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    this.props.fetchBags(this.props.authentication["username"]);
+    this.props.fetchBags(this.props.authentication[0].user["username"]);
   }
 
   addInventory(viewListID) {
@@ -46,7 +46,10 @@ export default class BagPage extends React.Component<Props, State> {
       viewListID: prevState.viewListID == viewListID ? null : viewListID,
       viewBagUpdate: null
     }));
-    this.props.showItems(viewListID, this.props.authentication["username"]);
+    this.props.showItems(
+      viewListID,
+      this.props.authentication[0].user["username"]
+    );
   }
 
   updateBagToggle(id) {
@@ -57,7 +60,7 @@ export default class BagPage extends React.Component<Props, State> {
   }
 
   deleteItem(id) {
-    this.props.deleteBags(id, this.props.authentication["username"]);
+    this.props.deleteBags(id, this.props.authentication[0].user["username"]);
   }
 
   render() {
