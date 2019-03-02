@@ -4,10 +4,9 @@
   "description": "Backpacker Typescript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/index.js",
-    "build": "webpack --mode development",
-    "dev": "nodemon server/index.js",
+    "postinstall": "webpack",
+    "dev": "nodemon --watch server & webpack --watch --mode development",
+    "start": "node server/index",
     "web": "webpack --mode development --watch"
   },
   "author": "",
