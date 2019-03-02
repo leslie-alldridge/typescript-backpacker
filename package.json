@@ -1,6 +1,9 @@
 {
   "name": "react-typescript-backpacker",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.x"
+  },
   "description": "Backpacker Typescript",
   "main": "index.js",
   "scripts": {
