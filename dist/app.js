@@ -1571,7 +1571,7 @@ eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpack
 /*!*******************************!*\
   !*** ./actions/auth/index.ts ***!
   \*******************************/
-/*! exports provided: logoutUser, registerError, registerUser, receiveLogin, receiveBag, loginUser */
+/*! exports provided: registerError, registerUser, receiveLogin, receiveBag, loginUser, logoutUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
