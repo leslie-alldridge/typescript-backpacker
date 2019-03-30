@@ -11,9 +11,7 @@ To learn React and Redux in Typescript.
 ## Todos
 
 [ ] cannot save empty bag name
-
 [ ] clear input and login fields on submit
-
 [ ] confirm token is removed on logout and a fresh one made for login
 
 ## Reflections & Learnings
