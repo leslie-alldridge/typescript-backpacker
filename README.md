@@ -1,4 +1,4 @@
-# BackPacker Typescript - Readme
+# BackPacker Typescript
 
 ## Vision (Why am I building this?)
 
