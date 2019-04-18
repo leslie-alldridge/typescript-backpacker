@@ -1,6 +1,6 @@
 # BackPacker Typescript
 
-## Vision (Why am I building this?)
+## Vision 
 
 To learn React and Redux in Typescript.
 
