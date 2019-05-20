@@ -26,6 +26,3 @@ Complete todos
 ## Link to original Javascript version
 
 https://github.com/leslie-alldridge/backpacker-redux (created during my time at EDA)
-
-### Trips
-Singapore + Thailand
