@@ -2,7 +2,7 @@
 
 ## Vision 
 
-To learn React and Redux in Typescript.
+To learn React and Redux with Typescript.
 
 ## Goals (Personal)
 
