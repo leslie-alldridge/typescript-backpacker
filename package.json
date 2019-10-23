@@ -23,7 +23,7 @@
     "dotenv": "^6.2.0",
     "express-jwt": "^5.3.1",
     "jwt-decode": "^2.2.0",
-    "knex": "^0.16.3",
+    "knex": "^0.19.5",
     "lc-form-validation": "^1.0.0",
     "nodemon": "^1.18.10",
     "passport": "^0.4.0",
