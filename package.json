@@ -21,7 +21,7 @@
     "bcrypt": "^3.0.4",
     "bootstrap": "^4.1.2",
     "dotenv": "^6.2.0",
-    "express-jwt": "^5.3.1",
+    "express-jwt": "^6.0.0",
     "jwt-decode": "^2.2.0",
     "knex": "^0.19.5",
     "lc-form-validation": "^1.0.0",
